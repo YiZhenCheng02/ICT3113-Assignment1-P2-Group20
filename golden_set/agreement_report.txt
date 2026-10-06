@@ -1,0 +1,28 @@
+Tickets: 200
+Raw agreement (p_o): 151/200 = 0.755
+Chance agreement (p_e): 0.136
+Cohen's kappa = (p_o - p_e) / (1 - p_e) = 0.716
+Landis & Koch: <0.20 slight, 0.21-0.40 fair, 0.41-0.60 moderate, 0.61-0.80 substantial, >0.80 almost perfect
+
+Confusion (rows = Annotator A, cols = Annotator B):
+label_B                    AMBIGUOUS  Bank account or service  Consumer loan  Credit card  Credit reporting  Debt collection  Money transfer or service  Mortgage
+label_A                                                                                                                                                          
+AMBIGUOUS                          5                        2              4            1                 1                2                          0         1
+Bank account or service            1                       23              0            1                 2                1                          7         0
+Consumer loan                      0                        0             18            0                 1                1                          0         4
+Credit card                        0                        2              4           18                 1                0                          0         0
+Credit reporting                   1                        0              0            1                33                2                          1         0
+Debt collection                    0                        0              0            1                 2               14                          0         1
+Money transfer or service          0                        1              1            0                 0                0                         23         0
+Mortgage                           1                        0              0            0                 1                0                          0        17
+
+Per-category agreement (tickets where either annotator chose the category):
+  AMBIGUOUS                      5/ 19 = 0.26
+  Bank account or service       23/ 40 = 0.57
+  Consumer loan                 18/ 33 = 0.55
+  Credit card                   18/ 29 = 0.62
+  Credit reporting              33/ 46 = 0.72
+  Debt collection               14/ 24 = 0.58
+  Money transfer or service     23/ 33 = 0.70
+  Mortgage                      17/ 25 = 0.68
+Tickets marked AMBIGUOUS by at least one annotator: 19
