@@ -1,0 +1,13 @@
+Final golden set: 185 tickets (15 removed out of 200)
+  agreed directly by A and B : 146
+  decided in resolution      : 39
+
+Tickets per category:
+final_label
+Credit reporting             43
+Debt collection              18
+Mortgage                     24
+Credit card                  21
+Bank account or service      27
+Consumer loan                24
+Money transfer or service    28

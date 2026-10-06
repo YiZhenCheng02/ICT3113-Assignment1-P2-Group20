@@ -30,14 +30,23 @@ from sklearn.metrics import cohen_kappa_score
 # works if we ever add a third annotator - we just run it on a different pair.
 a_path, b_path = sys.argv[1], sys.argv[2]
 
-# We only need these columns. Notes are free text, so we leave them out.
-cols = ["golden_id", "row", "narrative", "label", "confidence"]
-a = pd.read_excel(a_path)[cols]
-b = pd.read_excel(b_path)[cols]
+def load_sheet(path):
+    """Read one annotator's sheet and keep only the columns we need.
+    """
+    df = pd.read_excel(path)
+    notes_col = next(c for c in df.columns if str(c).lower().startswith("notes"))
+    df = df.rename(columns={notes_col: "notes"})
+    return df[["golden_id", "row", "narrative", "label", "confidence", "notes"]]
+
+a = load_sheet(a_path)
+b = load_sheet(b_path)
 
 # Join the two sheets on the ticket itself (ID + row + narrative), so A's label
 # and B's label for the same ticket end up on the same row. The suffixes rename
-# the overlapping columns to label_A / label_B and confidence_A / confidence_B.
+# the overlapping columns to label_A / confidence_A / notes_A and
+# label_B / confidence_B / notes_B. Because pandas keeps all of A's columns
+# first and then B's, the output order is already what we want:
+#   label_A, confidence_A, notes_A, label_B, confidence_B, notes_B
 # Merging on all three fields also works as a sanity check: if someone edited a
 # narrative or messed up a row by accident, that ticket won't match.
 m = a.merge(b, on=["golden_id", "row", "narrative"], suffixes=("_A", "_B"))
@@ -136,7 +145,8 @@ d["reason_for_discussion"] = ["AMBIGUOUS" if x else "disagreement" for x in amb[
 d["final_label (category or REMOVE)"] = ""
 d["resolution_reason"] = ""
 d["protocol_change (rule id / none)"] = ""   # e.g. "added Rule 10" if the protocol was missing something
-d["agreed_by"] = ""
+# No "agreed_by" column: the resolution is done by the same annotators (A and B),
+# so it would just be the same names on every row.
 
 d.to_excel("disagreements_to_resolve.xlsx", index=False)
 print(f"\n{len(d)} tickets (disagreements + AMBIGUOUS) written to disagreements_to_resolve.xlsx")
