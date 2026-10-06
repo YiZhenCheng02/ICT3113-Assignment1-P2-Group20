@@ -1,0 +1,40 @@
+# ICT3113 A1 - P2 Group 20: Ticket Triage Service (baseline)
+# Start:   docker compose up -d --build
+# Switch candidate model:  edit MODEL in .env, then  docker compose up -d triage
+services:
+  ollama:
+    image: ollama/ollama:${OLLAMA_VERSION:-latest}   # pin the exact version in .env once you know it
+    container_name: g20-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_models:/root/.ollama      # downloaded models survive container restarts
+    environment:
+      # CPU only: we do NOT request a GPU anywhere in this file (no "deploy.resources.devices").
+      - OLLAMA_NUM_PARALLEL=1            # Ollama handles one generation at a time (recorded for the report)
+      - OLLAMA_MAX_LOADED_MODELS=1       # only the candidate under test sits in memory
+      - OLLAMA_KEEP_ALIVE=-1             # keep the model loaded, so tests don't measure model loading after idle gaps
+    restart: unless-stopped
+
+  triage:
+    build: ./service
+    container_name: g20-triage
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_URL=http://ollama:11434
+      - MODEL=${MODEL:-qwen2.5:1.5b}
+      - RUN_ID=${RUN_ID:-manual}
+      - DB_PATH=/data/tickets.db
+      - LOG_PATH=/logs/requests.jsonl
+      - GUNICORN_WORKERS=1
+      - GUNICORN_THREADS=8
+    volumes:
+      - ./logs:/logs                     # request logs land in the repo's logs/ folder (commit these!)
+      - ./data:/data                     # SQLite database (NOT committed)
+    restart: unless-stopped
+
+volumes:
+  ollama_models:

@@ -1,0 +1,8 @@
+# secrets / local config
+.env
+# SQLite database is rebuilt every run (the service starts empty)
+data/*.db
+data/*.db-*
+__pycache__/
+*.pyc
+# NOTE: logs/ is deliberately NOT ignored - the brief requires the logs in the repo
