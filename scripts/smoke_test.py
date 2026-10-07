@@ -11,7 +11,9 @@ Uses only the Python standard library, so no pip install is needed.
 import argparse
 import csv
 import json
+import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
@@ -31,23 +33,56 @@ def call(method, path, body=None, headers=None):
         return r.status, json.loads(r.read()), (time.perf_counter() - t0) * 1000
 
 
-# Skip golden-set rows: the golden set must stay unseen until the accuracy test
+# Skip golden-set rows: the golden set must stay unseen until the accuracy test.
+# Fail loudly (before sending any ticket) if the golden file is missing or has no "row" column.
 try:
-    golden_rows = {r["row"] for r in csv.DictReader(open(args.golden, encoding="utf-8"))}
+    with open(args.golden, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames is None or "row" not in reader.fieldnames:
+            print(f"ERROR: golden set {args.golden!r} has no 'row' column; refusing to run.",
+                  file=sys.stderr)
+            sys.exit(1)
+        golden_rows = {(r["row"] or "").strip() for r in reader}
 except FileNotFoundError:
-    golden_rows = set()
+    print(f"ERROR: golden set file {args.golden!r} not found; refusing to run.", file=sys.stderr)
+    sys.exit(1)
 
 print(call("GET", "/health")[1])
-sent = 0
+posted_ok = 0
+posted_failed = 0
 for row in csv.DictReader(open(args.rows_csv, encoding="utf-8")):
-    if row["row"] in golden_rows:
+    row_id = (row["row"] or "").strip()
+    if row_id in golden_rows:
         continue
-    status, body, ms = call("POST", "/tickets", row["narrative"].encode("utf-8"),
-                            {"Content-Type": "text/plain; charset=utf-8", "X-Ticket-Ref": row["row"]})
-    print(f"row {row['row']}: HTTP {status} -> {body['category']:<26} ({ms:,.0f} ms)")
-    sent += 1
-    if sent >= args.n:
+    # POST directly so we can time it and handle a 502 invalid-category response ourselves.
+    req = urllib.request.Request(
+        args.url + "/tickets",
+        data=row["narrative"].encode("utf-8"),
+        method="POST",
+        headers={"Content-Type": "text/plain; charset=utf-8", "X-Ticket-Ref": row_id},
+    )
+    t0 = time.perf_counter()
+    try:
+        with urllib.request.urlopen(req, timeout=900) as r:
+            status, body = r.status, json.loads(r.read())
+        ms = (time.perf_counter() - t0) * 1000
+        category = body.get("category", "?") if isinstance(body, dict) else "?"
+        print(f"row {row_id}: HTTP {status} -> {str(category):<26} ({ms:,.0f} ms)")
+        posted_ok += 1
+    except urllib.error.HTTPError as e:
+        ms = (time.perf_counter() - t0) * 1000
+        try:
+            payload = json.loads(e.read())
+            message = payload.get("error", "") if isinstance(payload, dict) else ""
+        except (ValueError, OSError):
+            message = ""
+        if not message:
+            message = str(e.reason or "HTTP error")
+        print(f"row {row_id}: HTTP {e.code} -> ERROR: {message} ({ms:,.0f} ms)")
+        posted_failed += 1
+    if posted_ok + posted_failed >= args.n:
         break
 
+print(f"tickets posted: {posted_ok} succeeded, {posted_failed} failed")
 print("search 'credit':", call("GET", "/search?" + urllib.parse.urlencode({"q": "credit"}))[1]["count"], "results")
 print("stats:", call("GET", "/stats")[1])

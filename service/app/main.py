@@ -17,6 +17,7 @@ Assignment 2 is where we optimise, so we want this version to be simple and meas
 Every request is logged as one JSON line in logs/requests.jsonl so that every number
 in our report can be traced back to a log entry (and matched with the JMeter .jtl files).
 """
+import hashlib
 import json
 import logging
 import os
@@ -32,11 +33,13 @@ from flask import Flask, g, jsonify, request
 # Config (all from environment variables, set in docker-compose.yml / .env)
 # ---------------------------------------------------------------------------
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434")
-MODEL = os.getenv("MODEL", "qwen2.5:1.5b")               # the candidate model being tested
+MODEL = os.getenv("MODEL", "qwen2.5:3b")                 # the candidate model being tested
 DB_PATH = os.getenv("DB_PATH", "/data/tickets.db")
 LOG_PATH = os.getenv("LOG_PATH", "/logs/requests.jsonl")
 OLLAMA_TIMEOUT_S = float(os.getenv("OLLAMA_TIMEOUT_S", "600"))  # CPU inference can be slow
 RUN_ID = os.getenv("RUN_ID", "manual")                    # tag each test run so logs are easy to filter
+NUM_CTX = int(os.getenv("NUM_CTX", "4096"))               # Ollama context window (tokens), explicit for reproducibility
+PROMPT_PATH = os.getenv("PROMPT_PATH", "/app/prompts/classify_v1.txt")  # classification prompt, read once at startup
 
 CATEGORIES = [
     "Credit reporting",
@@ -48,25 +51,23 @@ CATEGORIES = [
     "Money transfer or service",
 ]
 
-# Short descriptions taken from our labelling protocol, so the model gets the same
-# definitions we used for the golden set. The prompt is FIXED before any accuracy run.
-PROMPT_TEMPLATE = """You are a complaint triage assistant at a financial services company.
-Classify the customer complaint below into exactly ONE of these categories:
-
-- Credit reporting: credit reports, credit bureaus (Equifax, Experian, TransUnion), disputes about report errors
-- Debt collection: debt collectors, collection agencies, being chased for a debt
-- Mortgage: home loans, mortgage servicers, escrow, foreclosure, home equity loans
-- Credit card: credit card charges, fees, interest, rewards, card account problems
-- Bank account or service: checking/savings accounts, debit cards, ATMs, overdraft, frozen accounts
-- Consumer loan: car loans and leases, personal loans, student loans, payday loans
-- Money transfer or service: wires, Zelle, PayPal, Venmo, Cash App, sending or receiving money, scams paid by transfer
-
-Answer with the category name only, exactly as written above, and nothing else.
-
-Complaint:
-\"\"\"{narrative}\"\"\"
-
-Category:"""
+# The classification prompt is loaded from a file (mounted read-only into the container) so the
+# exact wording is versioned and hashed. It is a condensed copy of the team's labelling protocol:
+# the human-only steps are removed and "choose the most likely category" replaces the human
+# "mark ambiguous" step. Read once at startup; fail fast if it is missing or malformed.
+try:
+    with open(PROMPT_PATH, "rb") as _prompt_file:
+        _PROMPT_BYTES = _prompt_file.read()
+except OSError as e:
+    raise RuntimeError(f"Could not read classification prompt file {PROMPT_PATH!r}: {e}") from e
+PROMPT_TEMPLATE = _PROMPT_BYTES.decode("utf-8")
+_prompt_placeholders = PROMPT_TEMPLATE.count("{narrative}")
+if _prompt_placeholders != 1:
+    raise RuntimeError(
+        "Prompt file %r must contain exactly one '{narrative}' placeholder, found %d."
+        % (PROMPT_PATH, _prompt_placeholders)
+    )
+PROMPT_SHA256 = hashlib.sha256(_PROMPT_BYTES).hexdigest()[:12]
 
 # ---------------------------------------------------------------------------
 # Logging: one JSON object per line (JSONL). Python's logging module is thread-safe,
@@ -133,36 +134,47 @@ def get_model_digest(model):
     return None
 
 
+# Characters the model may wrap its answer in, e.g. "**Debt collection**" or "`Mortgage`".
+_REPLY_TRIM_CHARS = "\"'\u0060*"   # double quote, single quote, backtick, asterisk
+
+
 def parse_category(text):
-    """Turn the model's free-text reply into one of our 7 categories.
-    Small models sometimes add extra words, so we look for the category names inside
-    the reply and take whichever one appears FIRST. If nothing matches we return
-    'Unknown', which simply counts as a wrong answer in the accuracy test."""
-    t = text.lower()
-    aliases = {
-        "credit reporting": "Credit reporting", "credit report": "Credit reporting",
-        "debt collection": "Debt collection",
-        "mortgage": "Mortgage",
-        "credit card": "Credit card",
-        "bank account or service": "Bank account or service", "bank account": "Bank account or service",
-        "consumer loan": "Consumer loan",
-        "money transfer or service": "Money transfer or service", "money transfer": "Money transfer or service",
-    }
-    best, best_pos = "Unknown", len(t) + 1
-    for alias, cat in aliases.items():
-        pos = t.find(alias)
-        if pos != -1 and pos < best_pos:
-            best, best_pos = cat, pos
-    return best
+    """Strict parser: the model must answer with exactly one of the 7 categories.
+    Take the first non-empty line, strip surrounding quotes/asterisks/backticks and a trailing
+    period, drop an optional leading "Category:", then compare case-insensitively for EXACT
+    equality with a category name. Returns the canonical name on a match, otherwise None.
+    There is deliberately no alias or substring matching."""
+    if not isinstance(text, str):
+        return None
+    first = ""
+    for line in text.strip().splitlines():
+        if line.strip():
+            first = line.strip()
+            break
+    if not first:
+        return None
+    first = first.strip(_REPLY_TRIM_CHARS).strip()
+    if first.endswith("."):
+        first = first[:-1].strip()
+    if first.lower().startswith("category:"):
+        first = first[len("category:"):].strip()
+        if first.endswith("."):
+            first = first[:-1].strip()
+    for category in CATEGORIES:
+        if first.lower() == category.lower():
+            return category
+    return None
 
 
 def classify(narrative):
-    """ONE synchronous call to Ollama. No retries, no cache, no batching (baseline)."""
+    """ONE synchronous call to Ollama. No retries, no cache, no batching (baseline).
+    Returns the raw reply, the wall-clock time and Ollama's own timing stats. Parsing is left
+    to the caller so that an unparseable reply can still be logged in full."""
     payload = {
         "model": MODEL,
-        "prompt": PROMPT_TEMPLATE.format(narrative=narrative),
+        "prompt": PROMPT_TEMPLATE.replace("{narrative}", narrative),
         "stream": False,
-        "options": {"temperature": 0},   # deterministic answers, so accuracy runs are repeatable
+        "options": {"temperature": 0, "num_ctx": NUM_CTX},   # deterministic + explicit context window
     }
     t0 = time.perf_counter()
     resp = requests.post(f"{OLLAMA_URL}/api/generate", json=payload, timeout=OLLAMA_TIMEOUT_S)
@@ -180,7 +192,7 @@ def classify(narrative):
         "output_tokens": body.get("eval_count"),
         "eval_ms": body.get("eval_duration", 0) / 1e6,
     }
-    return parse_category(raw), raw, model_ms, ollama_stats
+    return raw, model_ms, ollama_stats
 
 
 # ---------------------------------------------------------------------------
@@ -189,6 +201,7 @@ def classify(narrative):
 @app.before_request
 def start_timer():
     g.t0 = time.perf_counter()
+    g.start_epoch_ms = int(time.time() * 1000)   # request START in epoch ms (matches JMeter's timeStamp)
     g.received_at = datetime.now(timezone.utc).isoformat(timespec="milliseconds")
     # Reuse the caller's request id if it sent one (JMeter can), otherwise make one.
     g.request_id = request.headers.get("X-Request-ID") or uuid.uuid4().hex
@@ -199,6 +212,7 @@ def start_timer():
 def log_request(response):
     entry = {
         "ts": g.received_at,                       # when the request arrived (UTC)
+        "epoch_ms": g.start_epoch_ms,              # request START in epoch ms (matches JMeter's timeStamp)
         "run_id": RUN_ID,
         "request_id": g.request_id,
         "method": request.method,
@@ -229,13 +243,14 @@ def create_ticket():
         ref = None
     ref = ref or request.headers.get("X-Ticket-Ref")   # optional, e.g. "20517" or "G042"
 
-    g.extra.update({"ref": ref, "narrative_chars": len(narrative), "narrative_words": len(narrative.split())})
+    g.extra.update({"ref": ref, "narrative_chars": len(narrative), "narrative_words": len(narrative.split()),
+                    "num_ctx": NUM_CTX, "prompt_sha256": PROMPT_SHA256})
     if not narrative:
         g.extra["error"] = "empty narrative"
         return jsonify(error="request body must contain a ticket narrative"), 400
 
     try:
-        category, raw, model_ms, ollama_stats = classify(narrative)
+        raw, model_ms, ollama_stats = classify(narrative)
     except requests.Timeout:
         g.extra["error"] = "ollama timeout"
         return jsonify(error="model backend timed out"), 504
@@ -244,6 +259,14 @@ def create_ticket():
         return jsonify(error="model backend unavailable"), 502
 
     digest = get_model_digest(MODEL)
+    category = parse_category(raw)
+    if category is None:
+        # Invalid model output: do NOT store it. Log everything needed to analyse the failure.
+        g.extra["error"] = "invalid model output"
+        g.extra.update({"raw_output": raw[:200], "model_digest": digest,
+                        "model_ms": round(model_ms, 2), **ollama_stats})
+        return jsonify(error="model returned an invalid category"), 502
+
     with get_db() as conn:
         cur = conn.execute(
             "INSERT INTO tickets (created_at, request_id, ref, narrative, category, raw_output, model, model_digest, model_ms) "
@@ -280,7 +303,9 @@ def stats():
     with get_db() as conn:
         rows = conn.execute("SELECT category, COUNT(*) AS n FROM tickets GROUP BY category").fetchall()
     counts = {c: 0 for c in CATEGORIES}
-    counts.update({r["category"]: r["n"] for r in rows})   # "Unknown" shows up too if the model misbehaved
+    for r in rows:
+        if r["category"] in counts:   # only ever the 7 known categories; /stats returns exactly these keys
+            counts[r["category"]] = r["n"]
     return jsonify(total=sum(counts.values()), by_category=counts)
 
 

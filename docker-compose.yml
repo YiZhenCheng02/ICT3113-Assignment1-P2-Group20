@@ -3,7 +3,7 @@
 # Switch candidate model:  edit MODEL in .env, then  docker compose up -d triage
 services:
   ollama:
-    image: ollama/ollama:${OLLAMA_VERSION:-latest}   # pin the exact version in .env once you know it
+    image: ollama/ollama:${OLLAMA_VERSION}   # pinned exact version from .env (no "latest" fallback)
     container_name: g20-ollama
     ports:
       - "11434:11434"
@@ -25,13 +25,16 @@ services:
       - ollama
     environment:
       - OLLAMA_URL=http://ollama:11434
-      - MODEL=${MODEL:-qwen2.5:1.5b}
+      - MODEL=${MODEL:-qwen2.5:3b}
       - RUN_ID=${RUN_ID:-manual}
+      - NUM_CTX=${NUM_CTX:-4096}
+      - PROMPT_PATH=/app/prompts/classify_v1.txt
       - DB_PATH=/data/tickets.db
       - LOG_PATH=/logs/requests.jsonl
       - GUNICORN_WORKERS=1
       - GUNICORN_THREADS=8
     volumes:
+      - ./prompts:/app/prompts:ro         # classification prompt, versioned in the repo (read-only)
       - ./logs:/logs                     # request logs land in the repo's logs/ folder (commit these!)
       - ./data:/data                     # SQLite database (NOT committed)
     restart: unless-stopped

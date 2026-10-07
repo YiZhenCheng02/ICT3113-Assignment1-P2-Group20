@@ -1,0 +1,33 @@
+{
+  "ollama_version": "0.40.0",
+  "models": [
+    {
+      "tag": "llama3.1:8b",
+      "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+      "size_gb": 4.92,
+      "parameter_size": "8.0B",
+      "quantization": "Q4_K_M"
+    },
+    {
+      "tag": "qwen2.5:7b",
+      "digest": "845dbda0ea48ed749caafd9e6037047aa19acfcfd82e704d7ca97d631a0b697e",
+      "size_gb": 4.68,
+      "parameter_size": "7.6B",
+      "quantization": "Q4_K_M"
+    },
+    {
+      "tag": "llama3.2:3b",
+      "digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+      "size_gb": 2.02,
+      "parameter_size": "3.2B",
+      "quantization": "Q4_K_M"
+    },
+    {
+      "tag": "qwen2.5:3b",
+      "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "size_gb": 1.93,
+      "parameter_size": "3.1B",
+      "quantization": "Q4_K_M"
+    }
+  ]
+}
