@@ -66,8 +66,8 @@ H3: Mortgage will be the easiest category. Mortgage complaints use distinctive v
 | `llama3.1:8b` | Pass | Pass | Pass | Pass | Borderline (75%) | Fail | Fail |
 
 Why every model is predicted to pass R1 to R4:
-- R1: predicted single-request latency is 2.5 to 5.0 s, well under the 10 s p50 target. At 19 POST/hour the model is busy only 1–3% of the time, so requests almost never wait for each other. By B2, p95 stays within 2 × p50, which is at most about 10 s, well under the 30 s target.
-- R2: at this load, search requests do not wait behind POSTs, because 8 threads is more than enough (B3, under 0.5 s).
+- R1: predicted single-request latency is 2.5 to 5.0 s, well under the 10 s p50 target. At 19 POST/hour the model is busy only 1–3% of the time, so requests almost never wait for each other. By P2, p95 stays within 2 × p50, which is at most about 10 s, well under the 30 s target.
+- R2: at this load, search requests do not wait behind POSTs, because 8 threads is more than enough (P3, under 0.5 s).
 - R3 and R4: even the slowest predictions (450 to 640 tickets/hour for llama3.1:8b on long tickets) are more than 14 times the targets of 32 and 19 tickets/hour.
 
 Why no model is predicted to pass R5:
