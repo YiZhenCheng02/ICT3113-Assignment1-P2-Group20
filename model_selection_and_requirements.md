@@ -29,10 +29,10 @@ How measured:
 - JMeter records the elapsed time of each HTTP 201 response.
 - Ticket narratives are drawn from a shuffled pool of our 1,000 rows.
 - OLLAMA_KEEP_ALIVE=-1, so the model stays loaded for the whole run.
-- Each run lasts 30 minutes after a warm-up. These are the same runs as R2, set up as described in R2.
+- Each run lasts 15 minutes. These are the same runs as R2, set up as described in R2.
 - For each run we report p50, p95, p99, achieved POST/hour, error rate and sample count, then the mean and the min-to-max spread across the three runs.
-- The target is checked on the pooled samples, about 28 POSTs.
-With about 28 samples, p99 equals the slowest observed request. We report it, but treat it as indicative rather than precise.
+- The target is checked on the pooled samples, about 14 POSTs.
+With about 14 samples, p95 and p99 both equal the slowest observed request. We report them, but treat them as indicative rather than precise.
 
 Justification: 19/hour is the busiest hour in the Capital One CFPB complaint data from October 2025 to October 2026. 29/hour is 19 × 1.5 searches per ticket, which is an assumption explained in our workload model.
 
@@ -41,15 +41,14 @@ POST /tickets is called by the client's intake system, not by an agent. Common r
 ### R2: GET /search latency
 Target: p50 ≤ 1 s, p95 ≤ 5 s, p99 ≤ 10 s, computed on all successful searches from the three runs pooled together.
 
-Load condition: the same runs as R1: 29 GET/hour and 19 POST/hour open-loop, with 100 tickets already stored at the start of each run.
+Load condition: the same runs as R1: 29 GET/hour and 19 POST/hour open-loop, with 100 tickets stored before the first run.
 
-How measured: before each of the three runs:
-- Restart the service with docker compose down, then docker compose up -d. The service deletes its ticket database on every start (service/Dockerfile:13), so each run begins with an empty store. 
-- Post 100 tickets through POST /tickets using the model under test. These seeding requests appear in the service log but are excluded from results.
-- Warm up the model.
-- Start the 30-minute run.
+How measured: for each model, once:
+Restart the service with docker compose down, then docker compose up -d. The service deletes its ticket database on every start (service/Dockerfile:13), so the store begins empty.
+Post 100 tickets through POST /tickets using the model under test. These seeding requests appear in the service log but are excluded from results. They also load the model, so they act as the warm-up.
+Run the three 15-minute runs back-to-back, without restarting. The store grows slightly between runs (about 100 → 105 → 110 tickets), which is too small to affect search time.
 
-JMeter records the elapsed time of each HTTP 200 response. Search terms are words drawn from the ticket narratives and kept in a CSV file. For each run we report p50, p95, p99, achieved GET/hour, error rate and sample count, separately from POST results, then the mean and spread. The target is checked on the pooled samples, about 44 searches. 
+JMeter records the elapsed time of each HTTP 200 response. Search terms are words drawn from the ticket narratives and kept in a CSV file. For each run we report p50, p95, p99, achieved GET/hour, error rate and sample count, separately from POST results, then the mean and spread. The target is checked on the pooled samples, about 22 searches. 
 
 Justification: 29/hour is the search rate from our workload model. 100 stored tickets is about one day of client volume (about 92 per day).
 
@@ -144,7 +143,7 @@ What happens to each request
 - Open-loop: JMeter sends requests at a fixed arrival rate, no matter how slowly the service responds. This shows queue build-up, because a slow server does not reduce the number of incoming requests.
 - Tested arrival rates: R1 and R2 at 19 POST/hour + 29 GET/hour. R3 and R4 at N = 2,300 POST/hour (the same for every model) + 29 GET/hour.
 - Warm-up: one POST /tickets request sent after the model is loaded and before the timed run starts, so the first measured request does not include model loading time. Warm-up requests are excluded from results.
-- Run: one timed test of one model at one arrival rate. 30 minutes for R1 and R2, 6 minutes for R3 and R4. Each configuration is run three times.
+- Run: one timed test of one model at one arrival rate. 15 minutes for R1 and R2, 6 minutes for R3 and R4. Each configuration is run three times.
 - Pool: our team's 1,000 dataset rows, used as ticket narratives in load tests.
 - Golden set: the 185 frozen tickets with agreed labels, used only for the R5 accuracy test.
 
