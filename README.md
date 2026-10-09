@@ -11,6 +11,19 @@ Lab P2 Group 20
 - Tan Yu Xuan - 2402480
 
 
+## Documentation
+
+| Doc | What it covers |
+|---|---|
+| [`SERVICE_README.md`](SERVICE_README.md) | Baseline ticket-triage service (Flask + Ollama): endpoints, classification flow, prompt handling and strict parsing, how to run it |
+| [`workload/workload_model.md`](workload/workload_model.md) | Step 3 workload model: ticket volume, peak/non-peak periods, agent search rate, ticket-length distribution |
+| [`golden_set/labelling_protocol_v2.md`](golden_set/labelling_protocol_v2.md) | Final (frozen) labelling protocol used to build the 185-ticket golden set |
+| [`golden_set/labelling_protocol_v1.md`](golden_set/labelling_protocol_v1.md) | Earlier labelling protocol, kept for history; superseded by v2 |
+| [`model_selection_and_requirements.md`](model_selection_and_requirements.md) | Step 4 candidate models (2×2 size × family) and the R1–R5 performance requirements |
+| [`predictions.md`](predictions.md) | Step 4 predictions recorded before any benchmark run (bottleneck, P1–P8, expected accuracy/latency) |
+| [`results/summary/report.md`](results/summary/report.md) | Full analysis: R1–R5 results, prediction checks, clock skew and reconciliation |
+
+
 ## Results
 
 | What | Where |
