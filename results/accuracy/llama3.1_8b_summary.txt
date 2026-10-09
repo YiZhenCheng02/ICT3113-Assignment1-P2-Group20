@@ -1,0 +1,24 @@
+model: llama3.1:8b
+tickets: 185
+correct: 168
+overall accuracy: 0.9081 (168/185)
+invalid output (502 'invalid category'): 0
+
+category: recall (tp / golden), precision (tp / predicted)
+Credit reporting         recall=0.9070 (39/43)  precision=0.8667 (39/45)
+Debt collection          recall=0.6667 (12/18)  precision=0.8571 (12/14)
+Mortgage                 recall=1.0000 (24/24)  precision=0.9600 (24/25)
+Credit card              recall=0.9048 (19/21)  precision=0.9048 (19/21)
+Bank account or service  recall=0.9259 (25/27)  precision=0.8621 (25/29)
+Consumer loan            recall=1.0000 (24/24)  precision=0.9231 (24/26)
+Money transfer or service recall=0.8929 (25/28)  precision=1.0000 (25/25)
+
+Confusion matrix (rows = golden label, columns = predicted):
+golden\predicted     Credit reporting      Debt collection             Mortgage          Credit card Bank account or serv        Consumer loan Money transfer or se  INVALID/FAILED
+Credit reporting                           39                    2                    1                    0                    0                    1                    0               0
+Debt collection                             2                   12                    0                    2                    1                    1                    0               0
+Mortgage                                    0                    0                   24                    0                    0                    0                    0               0
+Credit card                                 2                    0                    0                   19                    0                    0                    0               0
+Bank account or service                     2                    0                    0                    0                   25                    0                    0               0
+Consumer loan                               0                    0                    0                    0                    0                   24                    0               0
+Money transfer or service                    0                    0                    0                    0                    3                    0                   25               0

@@ -1,0 +1,24 @@
+model: qwen2.5:3b
+tickets: 185
+correct: 132
+overall accuracy: 0.7135 (132/185)
+invalid output (502 'invalid category'): 0
+
+category: recall (tp / golden), precision (tp / predicted)
+Credit reporting         recall=0.9070 (39/43)  precision=0.7959 (39/49)
+Debt collection          recall=0.5556 (10/18)  precision=0.9091 (10/11)
+Mortgage                 recall=1.0000 (24/24)  precision=0.5854 (24/41)
+Credit card              recall=0.7143 (15/21)  precision=0.8824 (15/17)
+Bank account or service  recall=0.9630 (26/27)  precision=0.5417 (26/48)
+Consumer loan            recall=0.1250 (3/24)  precision=0.7500 (3/4)
+Money transfer or service recall=0.5357 (15/28)  precision=1.0000 (15/15)
+
+Confusion matrix (rows = golden label, columns = predicted):
+golden\predicted     Credit reporting      Debt collection             Mortgage          Credit card Bank account or serv        Consumer loan Money transfer or se  INVALID/FAILED
+Credit reporting                           39                    0                    3                    0                    1                    0                    0               0
+Debt collection                             5                   10                    1                    1                    1                    0                    0               0
+Mortgage                                    0                    0                   24                    0                    0                    0                    0               0
+Credit card                                 2                    0                    0                   15                    3                    1                    0               0
+Bank account or service                     1                    0                    0                    0                   26                    0                    0               0
+Consumer loan                               1                    0                   13                    1                    6                    3                    0               0
+Money transfer or service                    1                    1                    0                    0                   11                    0                   15               0
