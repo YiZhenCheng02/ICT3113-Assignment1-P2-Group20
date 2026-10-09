@@ -1,0 +1,106 @@
+2026-10-09 00:47:18 START trial
+2026-10-09 00:50:21 TRIAL done: 8 samples
+2026-10-09 00:54:14 START trial
+2026-10-09 00:57:17 TRIAL done: 16 samples
+2026-10-09 01:00:41 ===== FULL RUN START =====
+2026-10-09 01:01:08 START acc qwen2.5:3b
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/qwen2.5_3b_raw.csv
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/qwen2.5_3b_summary.txt
+accuracy: 132/185 = 0.7135
+2026-10-09 01:08:49 DONE acc qwen2.5:3b
+2026-10-09 01:09:19 START acc llama3.2:3b
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/llama3.2_3b_raw.csv
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/llama3.2_3b_summary.txt
+accuracy: 134/185 = 0.7243
+2026-10-09 01:17:29 DONE acc llama3.2:3b
+2026-10-09 01:18:28 START acc qwen2.5:7b
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/qwen2.5_7b_raw.csv
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/qwen2.5_7b_summary.txt
+accuracy: 158/185 = 0.8541
+2026-10-09 01:34:25 DONE acc qwen2.5:7b
+2026-10-09 01:35:29 START acc llama3.1:8b
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/llama3.1_8b_raw.csv
+wrote /home/deric/workspaces/Personal/ICT3113-Assignment1-P2-Group20/loadtest/../results/accuracy/llama3.1_8b_summary.txt
+accuracy: 168/185 = 0.9081
+2026-10-09 01:52:10 DONE acc llama3.1:8b
+2026-10-09 01:52:39 START r3_qwen2-5-3b_run1
+2026-10-09 01:59:42 DONE r3_qwen2-5-3b_run1
+2026-10-09 02:00:07 START r3_qwen2-5-3b_run2
+2026-10-09 02:07:11 DONE r3_qwen2-5-3b_run2
+2026-10-09 02:07:37 START r3_qwen2-5-3b_run3
+2026-10-09 02:14:40 DONE r3_qwen2-5-3b_run3
+2026-10-09 02:15:07 START r3_llama3-2-3b_run1
+2026-10-09 02:22:10 DONE r3_llama3-2-3b_run1
+2026-10-09 02:22:37 START r3_llama3-2-3b_run2
+2026-10-09 02:29:40 DONE r3_llama3-2-3b_run2
+2026-10-09 02:30:06 START r3_llama3-2-3b_run3
+2026-10-09 02:37:10 DONE r3_llama3-2-3b_run3
+2026-10-09 02:38:03 START r3_qwen2-5-7b_run1
+2026-10-09 02:45:07 DONE r3_qwen2-5-7b_run1
+2026-10-09 02:46:00 START r3_qwen2-5-7b_run2
+2026-10-09 02:53:03 DONE r3_qwen2-5-7b_run2
+2026-10-09 02:53:57 START r3_qwen2-5-7b_run3
+2026-10-09 03:01:00 DONE r3_qwen2-5-7b_run3
+2026-10-09 03:01:56 START r3_llama3-1-8b_run1
+2026-10-09 03:09:00 DONE r3_llama3-1-8b_run1
+2026-10-09 03:09:54 START r3_llama3-1-8b_run2
+2026-10-09 03:16:58 DONE r3_llama3-1-8b_run2
+2026-10-09 03:17:53 START r3_llama3-1-8b_run3
+2026-10-09 03:24:56 DONE r3_llama3-1-8b_run3
+2026-10-09 03:24:59 SEED r1r2_qwen2-5-3b
+seed-r1r2_qwen2-5-3b: 100/100 stored
+2026-10-09 03:29:44 START r1r2_qwen2-5-3b_run1
+2026-10-09 03:45:48 DONE r1r2_qwen2-5-3b_run1
+2026-10-09 03:45:48 START r1r2_qwen2-5-3b_run2
+2026-10-09 04:01:51 DONE r1r2_qwen2-5-3b_run2
+2026-10-09 04:01:51 START r1r2_qwen2-5-3b_run3
+2026-10-09 04:17:54 DONE r1r2_qwen2-5-3b_run3
+2026-10-09 04:17:59 SEED r1r2_llama3-2-3b
+seed-r1r2_llama3-2-3b: 100/100 stored
+2026-10-09 04:22:46 START r1r2_llama3-2-3b_run1
+2026-10-09 04:38:49 DONE r1r2_llama3-2-3b_run1
+2026-10-09 04:38:49 START r1r2_llama3-2-3b_run2
+2026-10-09 04:54:52 DONE r1r2_llama3-2-3b_run2
+2026-10-09 04:54:53 START r1r2_llama3-2-3b_run3
+2026-10-09 05:10:56 DONE r1r2_llama3-2-3b_run3
+2026-10-09 05:11:01 SEED r1r2_qwen2-5-7b
+seed-r1r2_qwen2-5-7b: 100/100 stored
+2026-10-09 05:20:31 START r1r2_qwen2-5-7b_run1
+2026-10-09 05:36:34 DONE r1r2_qwen2-5-7b_run1
+2026-10-09 05:36:34 START r1r2_qwen2-5-7b_run2
+2026-10-09 05:52:37 DONE r1r2_qwen2-5-7b_run2
+2026-10-09 05:52:37 START r1r2_qwen2-5-7b_run3
+2026-10-09 06:08:40 DONE r1r2_qwen2-5-7b_run3
+2026-10-09 06:08:46 SEED r1r2_llama3-1-8b
+seed-r1r2_llama3-1-8b: 100/100 stored
+2026-10-09 06:18:47 START r1r2_llama3-1-8b_run1
+2026-10-09 06:34:50 DONE r1r2_llama3-1-8b_run1
+2026-10-09 06:34:50 START r1r2_llama3-1-8b_run2
+2026-10-09 06:50:52 DONE r1r2_llama3-1-8b_run2
+2026-10-09 06:50:52 START r1r2_llama3-1-8b_run3
+2026-10-09 07:06:55 DONE r1r2_llama3-1-8b_run3
+2026-10-09 07:07:24 START r4_qwen2-5-3b_run1
+2026-10-09 07:14:28 DONE r4_qwen2-5-3b_run1
+2026-10-09 07:14:53 START r4_qwen2-5-3b_run2
+2026-10-09 07:21:57 DONE r4_qwen2-5-3b_run2
+2026-10-09 07:22:22 START r4_qwen2-5-3b_run3
+2026-10-09 07:29:25 DONE r4_qwen2-5-3b_run3
+2026-10-09 07:29:52 START r4_llama3-2-3b_run1
+2026-10-09 07:36:55 DONE r4_llama3-2-3b_run1
+2026-10-09 07:37:22 START r4_llama3-2-3b_run2
+2026-10-09 07:44:26 DONE r4_llama3-2-3b_run2
+2026-10-09 07:44:53 START r4_llama3-2-3b_run3
+2026-10-09 07:51:56 DONE r4_llama3-2-3b_run3
+2026-10-09 07:52:49 START r4_qwen2-5-7b_run1
+2026-10-09 07:59:52 DONE r4_qwen2-5-7b_run1
+2026-10-09 08:00:46 START r4_qwen2-5-7b_run2
+2026-10-09 08:07:49 DONE r4_qwen2-5-7b_run2
+2026-10-09 08:08:42 START r4_qwen2-5-7b_run3
+2026-10-09 08:15:46 DONE r4_qwen2-5-7b_run3
+2026-10-09 08:16:41 START r4_llama3-1-8b_run1
+2026-10-09 08:23:44 DONE r4_llama3-1-8b_run1
+2026-10-09 08:24:40 START r4_llama3-1-8b_run2
+2026-10-09 08:31:43 DONE r4_llama3-1-8b_run2
+2026-10-09 08:32:39 START r4_llama3-1-8b_run3
+2026-10-09 08:39:42 DONE r4_llama3-1-8b_run3
+2026-10-09 08:39:42 ===== ALL DONE =====

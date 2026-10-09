@@ -1,0 +1,12 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1791496371066,103,GET /search,200,OK,GET 2-1,text,true,,241,137,1,1,http://192.168.1.14:8000/search?q=reality,103,0,70
+1791496435942,56,GET /search,200,OK,GET 2-2,text,true,,240,136,1,1,http://192.168.1.14:8000/search?q=posted,55,0,40
+1791496501402,57,GET /search,200,OK,GET 2-3,text,true,,248,144,1,1,http://192.168.1.14:8000/search?q=communications,57,0,42
+1791496583246,3385,POST /tickets,201,CREATED,POST 1-1,text,true,,323,637,1,1,http://192.168.1.14:8000/tickets,3385,0,16
+1791496615573,44,GET /search,200,OK,GET 2-4,text,true,,1129,137,1,1,http://192.168.1.14:8000/search?q=recieve,44,0,26
+1791496684810,49,GET /search,200,OK,GET 2-5,text,true,,548,139,1,1,http://192.168.1.14:8000/search?q=collected,49,0,34
+1791496754299,55,GET /search,200,OK,GET 2-6,text,true,,241,137,1,2,http://192.168.1.14:8000/search?q=endless,55,0,34
+1791496753506,3103,POST /tickets,201,CREATED,POST 1-2,text,true,,313,585,1,1,http://192.168.1.14:8000/tickets,3103,0,38
+1791496768061,44,GET /search,200,OK,GET 2-7,text,true,,243,139,1,1,http://192.168.1.14:8000/search?q=committed,44,0,30
+1791496820334,5805,POST /tickets,201,CREATED,POST 1-3,text,true,,314,1533,1,1,http://192.168.1.14:8000/tickets,5805,0,44
+1791496997081,6114,POST /tickets,201,CREATED,POST 1-4,text,true,,321,1430,1,1,http://192.168.1.14:8000/tickets,6114,0,39

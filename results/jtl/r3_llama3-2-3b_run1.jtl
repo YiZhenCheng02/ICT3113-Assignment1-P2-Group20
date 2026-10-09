@@ -1,0 +1,232 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1791483308170,1996,POST /tickets,201,CREATED,POST 1-1,text,true,,312,636,1,1,http://192.168.1.14:8000/tickets,1996,0,28
+1791483312089,1711,POST /tickets,201,CREATED,POST 1-2,text,true,,312,584,2,2,http://192.168.1.14:8000/tickets,1711,0,38
+1791483313773,3218,POST /tickets,201,CREATED,POST 1-3,text,true,,313,1532,5,5,http://192.168.1.14:8000/tickets,3218,0,27
+1791483314243,5864,POST /tickets,201,CREATED,POST 1-4,text,true,,320,1429,5,5,http://192.168.1.14:8000/tickets,5864,0,42
+1791483315767,6772,POST /tickets,201,CREATED,POST 1-5,text,true,,322,830,5,5,http://192.168.1.14:8000/tickets,6772,0,13
+1791483315815,9066,POST /tickets,201,CREATED,POST 1-6,text,true,,305,964,5,5,http://192.168.1.14:8000/tickets,9066,0,13
+1791483316891,11579,POST /tickets,201,CREATED,POST 1-7,text,true,,312,1881,8,8,http://192.168.1.14:8000/tickets,11579,0,42
+1791483319829,11521,POST /tickets,201,CREATED,POST 1-8,text,true,,313,1187,7,7,http://192.168.1.14:8000/tickets,11521,0,38
+1791483321515,11575,POST /tickets,201,CREATED,POST 1-9,text,true,,314,778,8,8,http://192.168.1.14:8000/tickets,11575,0,40
+1791483324839,11386,POST /tickets,201,CREATED,POST 1-10,text,true,,313,1419,8,8,http://192.168.1.14:8000/tickets,11386,0,50
+1791483325139,14490,POST /tickets,201,CREATED,POST 1-11,text,true,,309,1539,10,10,http://192.168.1.14:8000/tickets,14490,0,40
+1791483326795,16049,POST /tickets,201,CREATED,POST 1-12,text,true,,306,1505,12,12,http://192.168.1.14:8000/tickets,16049,0,39
+1791483327214,17552,POST /tickets,201,CREATED,POST 1-13,text,true,,313,674,12,12,http://192.168.1.14:8000/tickets,17552,0,13
+1791483328175,19975,POST /tickets,201,CREATED,POST 1-14,text,true,,306,1593,13,13,http://192.168.1.14:8000/tickets,19975,0,29
+1791483331479,18612,POST /tickets,201,CREATED,POST 1-15,text,true,,323,963,12,12,http://192.168.1.14:8000/tickets,18612,0,29
+1791483332004,21990,POST /tickets,201,CREATED,POST 1-16,text,true,,309,1728,13,13,http://192.168.1.14:8000/tickets,21990,0,43
+1791483334569,21658,POST /tickets,201,CREATED,POST 1-17,text,true,,321,865,12,12,http://192.168.1.14:8000/tickets,21658,0,43
+1791483336983,22553,POST /tickets,201,CREATED,POST 1-18,text,true,,323,1327,12,12,http://192.168.1.14:8000/tickets,22553,0,15
+1791483337120,26998,POST /tickets,201,CREATED,POST 1-19,text,true,,306,2149,11,11,http://192.168.1.14:8000/tickets,26998,0,12
+1791483338942,28590,POST /tickets,201,CREATED,POST 1-20,text,true,,321,1468,10,10,http://192.168.1.14:8000/tickets,28590,0,12
+1791483339817,31059,POST /tickets,201,CREATED,POST 1-21,text,true,,321,1209,9,9,http://192.168.1.14:8000/tickets,31059,0,13
+1791483341844,31384,POST /tickets,201,CREATED,POST 1-22,text,true,,313,988,9,9,http://192.168.1.14:8000/tickets,31384,0,35
+1791483342432,33845,POST /tickets,201,CREATED,POST 1-23,text,true,,323,1353,10,10,http://192.168.1.14:8000/tickets,33845,0,19
+1791483343141,35618,POST /tickets,201,CREATED,POST 1-24,text,true,,313,1110,10,10,http://192.168.1.14:8000/tickets,35618,0,27
+1791483346459,34869,POST /tickets,201,CREATED,POST 1-25,text,true,,311,1108,9,9,http://192.168.1.14:8000/tickets,34869,0,41
+1791483346787,37302,POST /tickets,201,CREATED,POST 1-26,text,true,,321,1071,9,9,http://192.168.1.14:8000/tickets,37302,0,18
+1791483352817,34322,POST /tickets,201,CREATED,POST 1-27,text,true,,313,1285,10,10,http://192.168.1.14:8000/tickets,34322,0,28
+1791483353051,38399,POST /tickets,201,CREATED,POST 1-28,text,true,,323,1799,9,9,http://192.168.1.14:8000/tickets,38398,0,13
+1791483359432,36015,POST /tickets,201,CREATED,POST 1-29,text,true,,321,1701,10,10,http://192.168.1.14:8000/tickets,36015,0,30
+1791483371455,26330,POST /tickets,201,CREATED,POST 1-30,text,true,,314,1180,12,12,http://192.168.1.14:8000/tickets,26330,0,44
+1791483374405,26310,POST /tickets,201,CREATED,POST 1-31,text,true,,314,1536,14,14,http://192.168.1.14:8000/tickets,26310,0,15
+1791483374837,27684,POST /tickets,201,CREATED,POST 1-32,text,true,,314,682,13,13,http://192.168.1.14:8000/tickets,27684,0,23
+1791483376399,27867,POST /tickets,201,CREATED,POST 1-33,text,true,,313,605,15,15,http://192.168.1.14:8000/tickets,27866,0,12
+1791483382815,24171,POST /tickets,201,CREATED,POST 1-34,text,true,,313,1157,15,15,http://192.168.1.14:8000/tickets,24171,0,14
+1791483384859,26467,POST /tickets,201,CREATED,POST 1-35,text,true,,313,1791,18,18,http://192.168.1.14:8000/tickets,26467,0,12
+1791483385256,28780,POST /tickets,201,CREATED,POST 1-36,text,true,,311,1128,22,22,http://192.168.1.14:8000/tickets,28780,0,13
+1791483392606,23477,POST /tickets,201,CREATED,POST 1-37,text,true,,309,847,22,22,http://192.168.1.14:8000/tickets,23477,0,41
+1791483394677,24352,POST /tickets,201,CREATED,POST 1-38,text,true,,306,1332,24,24,http://192.168.1.14:8000/tickets,24351,0,39
+1791483397272,23879,POST /tickets,201,CREATED,POST 1-39,text,true,,314,822,26,26,http://192.168.1.14:8000/tickets,23878,0,42
+1791483397329,27108,POST /tickets,201,CREATED,POST 1-40,text,true,,311,1339,28,28,http://192.168.1.14:8000/tickets,27108,0,12
+1791483397688,31000,POST /tickets,201,CREATED,POST 1-41,text,true,,321,1794,27,27,http://192.168.1.14:8000/tickets,31000,0,14
+1791483398438,32350,POST /tickets,201,CREATED,POST 1-42,text,true,,311,844,27,27,http://192.168.1.14:8000/tickets,32349,0,29
+1791483399479,35452,POST /tickets,201,CREATED,POST 1-43,text,true,,311,1774,30,30,http://192.168.1.14:8000/tickets,35451,0,12
+1791483400611,36412,POST /tickets,201,CREATED,POST 1-44,text,true,,323,895,29,29,http://192.168.1.14:8000/tickets,36412,0,34
+1791483402630,37465,POST /tickets,201,CREATED,POST 1-45,text,true,,306,1419,29,29,http://192.168.1.14:8000/tickets,37465,0,12
+1791483403313,39254,POST /tickets,201,CREATED,POST 1-46,text,true,,313,1018,33,33,http://192.168.1.14:8000/tickets,39254,0,29
+1791483403617,43276,POST /tickets,201,CREATED,POST 1-47,text,true,,306,1708,35,35,http://192.168.1.14:8000/tickets,43276,0,15
+1791483405058,44249,POST /tickets,201,CREATED,POST 1-48,text,true,,313,1030,34,34,http://192.168.1.14:8000/tickets,44248,0,44
+1791483407330,43831,POST /tickets,201,CREATED,POST 1-49,text,true,,321,544,33,33,http://192.168.1.14:8000/tickets,43831,0,13
+1791483407633,45307,POST /tickets,201,CREATED,POST 1-50,text,true,,314,758,35,35,http://192.168.1.14:8000/tickets,45307,0,35
+1791483407923,48693,POST /tickets,201,CREATED,POST 1-51,text,true,,321,1859,36,36,http://192.168.1.14:8000/tickets,48693,0,14
+1791483409991,48496,POST /tickets,201,CREATED,POST 1-52,text,true,,306,648,39,39,http://192.168.1.14:8000/tickets,48496,0,27
+1791483411553,51037,POST /tickets,201,CREATED,POST 1-53,text,true,,321,1842,41,41,http://192.168.1.14:8000/tickets,51037,0,12
+1791483411598,53606,POST /tickets,201,CREATED,POST 1-54,text,true,,309,1029,42,42,http://192.168.1.14:8000/tickets,53606,0,15
+1791483411725,55925,POST /tickets,201,CREATED,POST 1-55,text,true,,313,948,44,44,http://192.168.1.14:8000/tickets,55925,0,11
+1791483412293,58417,POST /tickets,201,CREATED,POST 1-56,text,true,,311,1429,43,43,http://192.168.1.14:8000/tickets,58417,0,43
+1791483413958,59984,POST /tickets,201,CREATED,POST 1-57,text,true,,323,1369,45,45,http://192.168.1.14:8000/tickets,59984,0,78
+1791483414071,61668,POST /tickets,201,CREATED,POST 1-58,text,true,,314,715,46,46,http://192.168.1.14:8000/tickets,61668,0,50
+1791483416334,62787,POST /tickets,201,CREATED,POST 1-59,text,true,,309,1551,48,48,http://192.168.1.14:8000/tickets,62787,0,14
+1791483418237,62990,POST /tickets,201,CREATED,POST 1-60,text,true,,314,901,48,48,http://192.168.1.14:8000/tickets,62990,0,11
+1791483418939,63768,POST /tickets,201,CREATED,POST 1-61,text,true,,314,522,47,47,http://192.168.1.14:8000/tickets,63767,0,13
+1791483419552,66340,POST /tickets,201,CREATED,POST 1-62,text,true,,314,1633,50,50,http://192.168.1.14:8000/tickets,66340,0,12
+1791483419831,67902,POST /tickets,201,CREATED,POST 1-63,text,true,,311,602,51,51,http://192.168.1.14:8000/tickets,67902,0,12
+1791483420566,71354,POST /tickets,201,CREATED,POST 1-64,text,true,,309,1805,53,53,http://192.168.1.14:8000/tickets,71354,0,39
+1791483421579,72510,POST /tickets,201,CREATED,POST 1-65,text,true,,311,844,53,53,http://192.168.1.14:8000/tickets,72510,0,32
+1791483422724,74727,POST /tickets,201,CREATED,POST 1-66,text,true,,313,1216,54,54,http://192.168.1.14:8000/tickets,74727,0,43
+1791483423922,75594,POST /tickets,201,CREATED,POST 1-67,text,true,,309,884,53,53,http://192.168.1.14:8000/tickets,75594,0,15
+1791483429218,74796,POST /tickets,201,CREATED,POST 1-68,text,true,,314,1994,55,55,http://192.168.1.14:8000/tickets,74796,0,14
+1791483431172,74662,POST /tickets,201,CREATED,POST 1-69,text,true,,321,760,56,56,http://192.168.1.14:8000/tickets,74662,0,12
+1791483433092,74160,POST /tickets,201,CREATED,POST 1-70,text,true,,311,546,55,55,http://192.168.1.14:8000/tickets,74160,0,24
+1791483433964,77995,POST /tickets,201,CREATED,POST 1-71,text,true,,313,1985,56,56,http://192.168.1.14:8000/tickets,77995,0,28
+1791483434585,80346,POST /tickets,201,CREATED,POST 1-72,text,true,,313,1245,56,56,http://192.168.1.14:8000/tickets,80346,0,29
+1791483439192,78429,POST /tickets,201,CREATED,POST 1-73,text,true,,323,1027,56,56,http://192.168.1.14:8000/tickets,78429,0,13
+1791483440096,81037,POST /tickets,201,CREATED,POST 1-74,text,true,,306,1463,60,60,http://192.168.1.14:8000/tickets,81037,0,13
+1791483440842,81973,POST /tickets,201,CREATED,POST 1-75,text,true,,313,511,60,60,http://192.168.1.14:8000/tickets,81973,0,26
+1791483441682,84940,POST /tickets,201,CREATED,POST 1-76,text,true,,314,1581,60,60,http://192.168.1.14:8000/tickets,84940,0,44
+1791483442041,87857,POST /tickets,201,CREATED,POST 1-77,text,true,,321,1381,61,61,http://192.168.1.14:8000/tickets,87857,0,15
+1791483442484,90344,POST /tickets,201,CREATED,POST 1-78,text,true,,309,1300,61,61,http://192.168.1.14:8000/tickets,90344,0,13
+1791483444025,91299,POST /tickets,201,CREATED,POST 1-79,text,true,,321,991,63,63,http://192.168.1.14:8000/tickets,91299,0,14
+1791483445252,92681,POST /tickets,201,CREATED,POST 1-80,text,true,,313,1130,63,63,http://192.168.1.14:8000/tickets,92681,0,12
+1791483446484,93552,POST /tickets,201,CREATED,POST 1-81,text,true,,323,705,62,62,http://192.168.1.14:8000/tickets,93552,0,13
+1791483451702,89913,POST /tickets,201,CREATED,POST 1-82,text,true,,321,562,63,63,http://192.168.1.14:8000/tickets,89913,0,14
+1791483452499,90590,POST /tickets,201,CREATED,POST 1-83,text,true,,314,636,66,66,http://192.168.1.14:8000/tickets,90590,0,39
+1791483452888,92290,POST /tickets,201,CREATED,POST 1-84,text,true,,323,709,65,65,http://192.168.1.14:8000/tickets,92289,0,14
+1791483453896,95056,POST /tickets,201,CREATED,POST 1-85,text,true,,321,1478,66,66,http://192.168.1.14:8000/tickets,95056,0,32
+1791483456301,95503,POST /tickets,201,CREATED,POST 1-86,text,true,,313,1262,71,71,http://192.168.1.14:8000/tickets,95503,0,30
+1791483456864,96714,POST /tickets,201,CREATED,POST 1-87,text,true,,314,664,72,72,http://192.168.1.14:8000/tickets,96714,0,15
+1791483457362,98881,POST /tickets,201,CREATED,POST 1-88,text,true,,313,1167,73,73,http://192.168.1.14:8000/tickets,98881,0,39
+1791483457577,101033,POST /tickets,201,CREATED,POST 1-89,text,true,,306,997,75,75,http://192.168.1.14:8000/tickets,101033,0,14
+1791483458447,102210,POST /tickets,201,CREATED,POST 1-90,text,true,,313,771,75,75,http://192.168.1.14:8000/tickets,102210,0,30
+1791483458865,105653,POST /tickets,201,CREATED,POST 1-91,text,true,,313,1725,77,77,http://192.168.1.14:8000/tickets,105653,0,12
+1791483461316,105554,POST /tickets,201,CREATED,POST 1-92,text,true,,321,842,79,79,http://192.168.1.14:8000/tickets,105554,0,11
+1791483462599,106735,POST /tickets,201,CREATED,POST 1-94,text,true,,313,1152,79,79,http://192.168.1.14:8000/tickets,106735,0,20
+1791483462013,109062,POST /tickets,201,CREATED,POST 1-93,text,true,,313,594,78,78,http://192.168.1.14:8000/tickets,109062,0,1064
+1791483464252,108861,POST /tickets,201,CREATED,POST 1-95,text,true,,306,724,78,78,http://192.168.1.14:8000/tickets,108861,0,12
+1791483466625,108605,POST /tickets,201,CREATED,POST 1-96,text,true,,314,1086,77,77,http://192.168.1.14:8000/tickets,108605,0,27
+1791483466953,110374,POST /tickets,201,CREATED,POST 1-97,text,true,,321,895,78,78,http://192.168.1.14:8000/tickets,110374,0,11
+1791483467060,113102,POST /tickets,201,CREATED,POST 1-98,text,true,,313,1241,77,77,http://192.168.1.14:8000/tickets,113102,0,12
+1791483471155,110506,POST /tickets,201,CREATED,POST 1-99,text,true,,314,514,79,79,http://192.168.1.14:8000/tickets,110506,0,34
+1791483472548,113357,POST /tickets,201,CREATED,POST 1-100,text,true,,315,1875,83,83,http://192.168.1.14:8000/tickets,113357,0,24
+1791483472612,115594,POST /tickets,201,CREATED,POST 1-101,text,true,,315,953,82,82,http://192.168.1.14:8000/tickets,115594,0,12
+1791483474215,116248,POST /tickets,201,CREATED,POST 1-102,text,true,,314,776,84,84,http://192.168.1.14:8000/tickets,116247,0,11
+1791483474387,117706,POST /tickets,201,CREATED,POST 1-103,text,true,,324,471,83,83,http://192.168.1.14:8000/tickets,117706,0,12
+1791483475844,118258,POST /tickets,201,CREATED,POST 1-104,text,true,,307,788,84,84,http://192.168.1.14:8000/tickets,118258,0,13
+1791483476916,120331,POST /tickets,201,CREATED,POST 1-105,text,true,,314,1134,83,83,http://192.168.1.14:8000/tickets,120331,0,36
+1791483478129,120589,POST /tickets,201,CREATED,POST 1-106,text,true,,314,447,82,82,http://192.168.1.14:8000/tickets,120589,0,39
+1791483479176,121997,POST /tickets,201,CREATED,POST 1-107,text,true,,312,955,84,84,http://192.168.1.14:8000/tickets,121997,0,10
+1791483483536,118899,POST /tickets,201,CREATED,POST 1-108,text,true,,310,481,83,83,http://192.168.1.14:8000/tickets,118899,0,12
+1791483483944,123115,POST /tickets,201,CREATED,POST 1-109,text,true,,322,1814,84,85,http://192.168.1.14:8000/tickets,123115,0,14
+1791483485198,123563,POST /tickets,201,CREATED,POST 1-110,text,true,,314,568,83,84,http://192.168.1.14:8000/tickets,123563,0,44
+1791483485811,124704,POST /tickets,201,CREATED,POST 1-111,text,true,,315,662,85,86,http://192.168.1.14:8000/tickets,124704,0,13
+1791483486182,126496,POST /tickets,201,CREATED,POST 1-112,text,true,,314,911,87,88,http://192.168.1.14:8000/tickets,126495,0,12
+1791483487125,127875,POST /tickets,201,CREATED,POST 1-113,text,true,,324,938,86,87,http://192.168.1.14:8000/tickets,127875,0,11
+1791483490936,128396,POST /tickets,201,CREATED,POST 1-114,text,true,,322,2179,88,89,http://192.168.1.14:8000/tickets,128396,0,15
+1791483491319,130124,POST /tickets,201,CREATED,POST 1-115,text,true,,322,761,90,91,http://192.168.1.14:8000/tickets,130124,0,27
+1791483491644,132601,POST /tickets,201,CREATED,POST 1-116,text,true,,307,1254,91,92,http://192.168.1.14:8000/tickets,132600,0,12
+1791483493912,131779,POST /tickets,201,CREATED,POST 1-117,text,true,,315,653,92,93,http://192.168.1.14:8000/tickets,131779,0,33
+1791483495368,133143,POST /tickets,201,CREATED,POST 1-118,text,true,,314,1410,92,93,http://192.168.1.14:8000/tickets,133143,0,14
+1791483497000,135045,POST /tickets,201,CREATED,POST 1-119,text,true,,310,1654,94,95,http://192.168.1.14:8000/tickets,135045,0,16
+1791483501828,131961,POST /tickets,201,CREATED,POST 1-120,text,true,,314,697,94,95,http://192.168.1.14:8000/tickets,131961,0,28
+1791483502924,133178,POST /tickets,201,CREATED,POST 1-121,text,true,,315,961,94,95,http://192.168.1.14:8000/tickets,133178,0,12
+1791483503897,133581,POST /tickets,201,CREATED,POST 1-122,text,true,,315,553,95,96,http://192.168.1.14:8000/tickets,133581,0,12
+1791483504334,137686,POST /tickets,201,CREATED,POST 1-123,text,true,,310,1893,98,99,http://192.168.1.14:8000/tickets,137686,0,13
+1791483504458,139423,POST /tickets,201,CREATED,POST 1-124,text,true,,322,666,97,98,http://192.168.1.14:8000/tickets,139423,0,11
+1791483507335,137720,POST /tickets,201,CREATED,POST 1-125,text,true,,312,443,97,98,http://192.168.1.14:8000/tickets,137720,0,11
+1791483511007,137663,POST /tickets,201,CREATED,POST 1-126,text,true,,307,1509,98,99,http://192.168.1.14:8000/tickets,137663,0,38
+1791483514201,137182,POST /tickets,201,CREATED,POST 1-127,text,true,,314,1190,97,98,http://192.168.1.14:8000/tickets,137182,0,18
+1791483516422,136871,POST /tickets,201,CREATED,POST 1-128,text,true,,315,759,96,97,http://192.168.1.14:8000/tickets,136870,0,42
+1791483517722,137015,POST /tickets,201,CREATED,POST 1-129,text,true,,322,506,95,97,http://192.168.1.14:8000/tickets,137015,0,13
+1791483518118,139938,POST /tickets,201,CREATED,POST 1-130,text,true,,307,1367,97,99,http://192.168.1.14:8000/tickets,139938,0,14
+1791483520416,141256,POST /tickets,201,CREATED,POST 1-131,text,true,,314,1403,98,100,http://192.168.1.14:8000/tickets,141256,0,40
+1791483520483,143146,POST /tickets,201,CREATED,POST 1-132,text,true,,324,895,97,99,http://192.168.1.14:8000/tickets,143146,0,12
+1791483520614,145282,POST /tickets,201,CREATED,POST 1-133,text,true,,307,914,96,98,http://192.168.1.14:8000/tickets,145282,0,14
+1791483522704,145111,POST /tickets,201,CREATED,POST 1-134,text,true,,322,655,96,98,http://192.168.1.14:8000/tickets,145111,0,26
+1791483605872,62074,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-191,text,false,,3243,0,95,97,http://192.168.1.14:8000/tickets,0,0,26
+1791483604457,63489,GET /search,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,GET 2-1,text,false,,3243,0,2,97,http://192.168.1.14:8000/search?q=reality,0,0,12
+1791483564860,103089,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-169,text,false,,3243,0,94,95,http://192.168.1.14:8000/tickets,0,0,12
+1791483653722,14227,GET /search,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,GET 2-2,text,false,,3243,0,1,94,http://192.168.1.14:8000/search?q=posted,0,0,28
+1791483581113,86835,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-177,text,false,,3243,0,93,94,http://192.168.1.14:8000/tickets,0,0,12
+1791483609842,58108,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-195,text,false,,3243,0,92,92,http://192.168.1.14:8000/tickets,0,0,17
+1791483615864,52087,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-199,text,false,,3243,0,91,91,http://192.168.1.14:8000/tickets,0,0,33
+1791483636945,31006,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-216,text,false,,3243,0,90,90,http://192.168.1.14:8000/tickets,0,0,11
+1791483589078,78875,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-185,text,false,,3243,0,89,89,http://192.168.1.14:8000/tickets,0,0,14
+1791483540941,127013,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-143,text,false,,3243,0,88,88,http://192.168.1.14:8000/tickets,0,0,29
+1791483584028,83926,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-180,text,false,,3243,0,87,87,http://192.168.1.14:8000/tickets,0,0,34
+1791483561329,106626,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-166,text,false,,3243,0,86,86,http://192.168.1.14:8000/tickets,0,0,13
+1791483609024,58932,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-194,text,false,,3243,0,85,85,http://192.168.1.14:8000/tickets,0,0,12
+1791483542438,125521,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-147,text,false,,3243,0,84,84,http://192.168.1.14:8000/tickets,0,0,43
+1791483558019,109942,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-162,text,false,,3243,0,83,83,http://192.168.1.14:8000/tickets,0,0,34
+1791483592562,75400,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-186,text,false,,3243,0,82,82,http://192.168.1.14:8000/tickets,0,0,13
+1791483559874,108088,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-164,text,false,,3243,0,81,81,http://192.168.1.14:8000/tickets,0,0,15
+1791483621531,46432,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-205,text,false,,3243,0,80,80,http://192.168.1.14:8000/tickets,0,0,11
+1791483582918,85046,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-178,text,false,,3243,0,79,79,http://192.168.1.14:8000/tickets,0,0,67
+1791483534296,133669,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-141,text,false,,3243,0,78,78,http://192.168.1.14:8000/tickets,0,0,24
+1791483561088,106878,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-165,text,false,,3243,0,77,77,http://192.168.1.14:8000/tickets,0,0,29
+1791483606421,61546,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-192,text,false,,3243,0,76,76,http://192.168.1.14:8000/tickets,0,0,39
+1791483611727,56241,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-198,text,false,,3243,0,75,75,http://192.168.1.14:8000/tickets,0,0,12
+1791483641322,26646,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-220,text,false,,3243,0,74,74,http://192.168.1.14:8000/tickets,0,0,15
+1791483542915,125055,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-148,text,false,,3243,0,73,73,http://192.168.1.14:8000/tickets,0,0,14
+1791483566064,101908,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-170,text,false,,3243,0,72,72,http://192.168.1.14:8000/tickets,0,0,11
+1791483567187,100786,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-171,text,false,,3243,0,71,71,http://192.168.1.14:8000/tickets,0,0,29
+1791483638670,29303,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-217,text,false,,3243,0,70,70,http://192.168.1.14:8000/tickets,0,0,13
+1791483558392,109581,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-163,text,false,,3243,0,69,69,http://192.168.1.14:8000/tickets,0,0,14
+1791483551061,116913,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-154,text,false,,3243,0,68,68,http://192.168.1.14:8000/tickets,0,0,17
+1791483621266,46708,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-204,text,false,,3243,0,67,67,http://192.168.1.14:8000/tickets,0,0,31
+1791483564720,103256,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-168,text,false,,3243,0,66,66,http://192.168.1.14:8000/tickets,0,0,14
+1791483535349,132626,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-142,text,false,,3243,0,66,66,http://192.168.1.14:8000/tickets,0,0,12
+1791483638718,29259,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-218,text,false,,3243,0,64,64,http://192.168.1.14:8000/tickets,0,0,12
+1791483620162,47815,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-203,text,false,,3243,0,63,63,http://192.168.1.14:8000/tickets,0,0,14
+1791483580932,87046,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-175,text,false,,3243,0,62,62,http://192.168.1.14:8000/tickets,0,0,13
+1791483525950,142029,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-135,text,false,,3243,0,61,61,http://192.168.1.14:8000/tickets,0,0,13
+1791483659756,8223,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-228,text,false,,3243,0,61,61,http://192.168.1.14:8000/tickets,0,0,14
+1791483624495,43485,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-207,text,false,,3243,0,59,59,http://192.168.1.14:8000/tickets,0,0,14
+1791483634655,33326,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-214,text,false,,3243,0,58,58,http://192.168.1.14:8000/tickets,0,0,12
+1791483600483,67499,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-189,text,false,,3243,0,57,57,http://192.168.1.14:8000/tickets,0,0,13
+1791483666451,1531,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-229,text,false,,3243,0,56,56,http://192.168.1.14:8000/tickets,0,0,14
+1791483628013,39970,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-209,text,false,,3243,0,55,55,http://192.168.1.14:8000/tickets,0,0,27
+1791483548481,119503,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-150,text,false,,3243,0,54,54,http://192.168.1.14:8000/tickets,0,0,12
+1791483592711,75275,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-187,text,false,,3243,0,53,53,http://192.168.1.14:8000/tickets,0,0,12
+1791483619734,48252,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-202,text,false,,3243,0,52,52,http://192.168.1.14:8000/tickets,0,0,13
+1791483549667,118319,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-151,text,false,,3243,0,51,51,http://192.168.1.14:8000/tickets,0,0,11
+1791483639443,28544,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-219,text,false,,3243,0,50,50,http://192.168.1.14:8000/tickets,0,0,73
+1791483551494,116494,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-156,text,false,,3243,0,49,49,http://192.168.1.14:8000/tickets,0,0,14
+1791483636883,31106,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-215,text,false,,3243,0,48,48,http://192.168.1.14:8000/tickets,0,0,17
+1791483656326,11665,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-225,text,false,,3243,0,47,47,http://192.168.1.14:8000/tickets,0,0,14
+1791483547367,120625,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-149,text,false,,3243,0,46,46,http://192.168.1.14:8000/tickets,0,0,12
+1791483625272,42719,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-208,text,false,,3243,0,45,45,http://192.168.1.14:8000/tickets,0,0,25
+1791483621679,46314,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-206,text,false,,3243,0,44,44,http://192.168.1.14:8000/tickets,0,0,12
+1791483629830,38164,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-210,text,false,,3243,0,43,43,http://192.168.1.14:8000/tickets,0,0,13
+1791483532877,135117,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-139,text,false,,3243,0,42,42,http://192.168.1.14:8000/tickets,0,0,13
+1791483555185,112810,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-160,text,false,,3243,0,41,41,http://192.168.1.14:8000/tickets,0,0,12
+1791483600510,67485,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-190,text,false,,3243,0,40,40,http://192.168.1.14:8000/tickets,0,0,13
+1791483554915,113082,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-159,text,false,,3243,0,39,39,http://192.168.1.14:8000/tickets,0,0,30
+1791483529001,138995,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-137,text,false,,3243,0,38,38,http://192.168.1.14:8000/tickets,0,0,35
+1791483577126,90872,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-174,text,false,,3243,0,37,37,http://192.168.1.14:8000/tickets,0,0,13
+1791483583229,84769,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-179,text,false,,3243,0,36,36,http://192.168.1.14:8000/tickets,0,0,46
+1791483531798,136200,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-138,text,false,,3243,0,35,35,http://192.168.1.14:8000/tickets,0,0,39
+1791483617254,50746,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-200,text,false,,3243,0,34,34,http://192.168.1.14:8000/tickets,0,0,13
+1791483585375,82625,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-181,text,false,,3243,0,33,33,http://192.168.1.14:8000/tickets,0,0,11
+1791483611407,56593,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-196,text,false,,3243,0,32,32,http://192.168.1.14:8000/tickets,0,0,12
+1791483644820,23181,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-221,text,false,,3243,0,31,31,http://192.168.1.14:8000/tickets,0,0,18
+1791483611517,56485,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-197,text,false,,3243,0,30,30,http://192.168.1.14:8000/tickets,0,0,12
+1791483550980,117022,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-153,text,false,,3243,0,29,29,http://192.168.1.14:8000/tickets,0,0,13
+1791483551183,116820,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-155,text,false,,3243,0,28,28,http://192.168.1.14:8000/tickets,0,0,13
+1791483533676,134328,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-140,text,false,,3243,0,27,27,http://192.168.1.14:8000/tickets,0,0,12
+1791483608942,59063,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-193,text,false,,3243,0,26,26,http://192.168.1.14:8000/tickets,0,0,13
+1791483572545,95461,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-172,text,false,,3243,0,25,25,http://192.168.1.14:8000/tickets,0,0,36
+1791483632909,35098,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-213,text,false,,3243,0,24,24,http://192.168.1.14:8000/tickets,0,0,37
+1791483588479,79528,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-184,text,false,,3243,0,23,23,http://192.168.1.14:8000/tickets,0,0,12
+1791483648160,19847,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-222,text,false,,3243,0,22,22,http://192.168.1.14:8000/tickets,0,0,12
+1791483630968,37040,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-211,text,false,,3243,0,21,21,http://192.168.1.14:8000/tickets,0,0,33
+1791483588366,79643,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-183,text,false,,3243,0,20,20,http://192.168.1.14:8000/tickets,0,0,15
+1791483556756,111254,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-161,text,false,,3243,0,19,19,http://192.168.1.14:8000/tickets,0,0,12
+1791483618530,49479,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-201,text,false,,3243,0,18,18,http://192.168.1.14:8000/tickets,0,0,11
+1791483631551,36460,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-212,text,false,,3243,0,17,17,http://192.168.1.14:8000/tickets,0,0,13
+1791483553055,114955,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-158,text,false,,3243,0,16,16,http://192.168.1.14:8000/tickets,0,0,12
+1791483648209,19802,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-223,text,false,,3243,0,15,15,http://192.168.1.14:8000/tickets,0,0,13
+1791483657080,10932,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-226,text,false,,3243,0,14,14,http://192.168.1.14:8000/tickets,0,0,12
+1791483598730,69282,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-188,text,false,,3243,0,13,13,http://192.168.1.14:8000/tickets,0,0,13
+1791483585866,82146,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-182,text,false,,3243,0,12,12,http://192.168.1.14:8000/tickets,0,0,38
+1791483549844,118169,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-152,text,false,,3243,0,11,11,http://192.168.1.14:8000/tickets,0,0,15
+1791483562434,105579,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-167,text,false,,3243,0,10,10,http://192.168.1.14:8000/tickets,0,0,22
+1791483655180,12835,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-224,text,false,,3243,0,9,9,http://192.168.1.14:8000/tickets,0,0,13
+1791483552464,115550,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-157,text,false,,3243,0,8,8,http://192.168.1.14:8000/tickets,0,0,12
+1791483576746,91270,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-173,text,false,,3243,0,7,7,http://192.168.1.14:8000/tickets,0,0,13
+1791483541763,126253,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-145,text,false,,3243,0,6,6,http://192.168.1.14:8000/tickets,0,0,11
+1791483541412,126605,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-144,text,false,,3243,0,5,5,http://192.168.1.14:8000/tickets,0,0,15
+1791483541794,126223,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-146,text,false,,3243,0,4,4,http://192.168.1.14:8000/tickets,0,0,13
+1791483581002,87015,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-176,text,false,,3243,0,3,3,http://192.168.1.14:8000/tickets,0,0,12
+1791483658116,9902,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-227,text,false,,3243,0,2,2,http://192.168.1.14:8000/tickets,0,0,11
+1791483526815,141203,POST /tickets,Non HTTP response code: java.net.SocketException,Non HTTP response message: Socket closed,POST 1-136,text,false,,3243,0,1,1,http://192.168.1.14:8000/tickets,0,0,14

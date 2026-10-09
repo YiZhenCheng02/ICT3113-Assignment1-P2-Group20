@@ -1,0 +1,39 @@
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider (file:/D:/jmeter/apache-jmeter-5.6.3/lib/xstream-1.4.20.jar)
+WARNING: Please consider reporting this to the maintainers of class com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using C:\Users\loadtest\loadtest\plan.jmx
+Starting standalone test @ 2026 Oct 9 07:29:54 GMT+08:00 (1791502194615)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +      2 in 00:00:09 =    0.2/s Avg:  4801 Min:  3806 Max:  5796 Err:     0 (0.00%) Active: 2 Started: 3 Finished: 1
+summary +      7 in 00:00:28 =    0.3/s Avg:  6282 Min:    62 Max: 12994 Err:     0 (0.00%) Active: 8 Started: 16 Finished: 8
+summary =      9 in 00:00:37 =    0.2/s Avg:  5953 Min:    62 Max: 12994 Err:     0 (0.00%)
+summary +      7 in 00:00:29 =    0.2/s Avg: 25365 Min: 17055 Max: 31096 Err:     0 (0.00%) Active: 23 Started: 38 Finished: 15
+summary =     16 in 00:01:05 =    0.2/s Avg: 14445 Min:    62 Max: 31096 Err:     0 (0.00%)
+summary +      8 in 00:00:33 =    0.2/s Avg: 40871 Min: 30612 Max: 51066 Err:     0 (0.00%) Active: 35 Started: 58 Finished: 23
+summary =     24 in 00:01:39 =    0.2/s Avg: 23254 Min:    62 Max: 51066 Err:     0 (0.00%)
+summary +      7 in 00:00:27 =    0.3/s Avg: 62893 Min: 53723 Max: 70936 Err:     0 (0.00%) Active: 47 Started: 77 Finished: 30
+summary =     31 in 00:02:06 =    0.2/s Avg: 32204 Min:    62 Max: 70936 Err:     0 (0.00%)
+summary +      8 in 00:00:33 =    0.2/s Avg: 82739 Min: 73010 Max: 92250 Err:     0 (0.00%) Active: 62 Started: 100 Finished: 38
+summary =     39 in 00:02:39 =    0.2/s Avg: 42570 Min:    62 Max: 92250 Err:     0 (0.00%)
+summary +      7 in 00:00:29 =    0.2/s Avg: 105387 Min: 96389 Max: 113181 Err:     0 (0.00%) Active: 70 Started: 115 Finished: 45
+summary =     46 in 00:03:08 =    0.2/s Avg: 52129 Min:    62 Max: 113181 Err:     0 (0.00%)
+summary +      6 in 00:00:28 =    0.2/s Avg: 124926 Min: 117092 Max: 132935 Err:     0 (0.00%) Active: 84 Started: 135 Finished: 51
+summary =     52 in 00:03:36 =    0.2/s Avg: 60529 Min:    62 Max: 132935 Err:     0 (0.00%)
+summary +      8 in 00:00:33 =    0.2/s Avg: 141134 Min: 136564 Max: 148324 Err:     0 (0.00%) Active: 102 Started: 161 Finished: 59
+summary =     60 in 00:04:09 =    0.2/s Avg: 71276 Min:    62 Max: 148324 Err:     0 (0.00%)
+summary +      8 in 00:00:31 =    0.3/s Avg: 157966 Min: 148583 Max: 164364 Err:     0 (0.00%) Active: 113 Started: 180 Finished: 67
+summary =     68 in 00:04:40 =    0.2/s Avg: 81475 Min:    62 Max: 164364 Err:     0 (0.00%)
+summary +      8 in 00:00:26 =    0.3/s Avg: 173680 Min: 167310 Max: 181470 Err:     0 (0.00%) Active: 118 Started: 193 Finished: 75
+summary =     76 in 00:05:05 =    0.2/s Avg: 91181 Min:    62 Max: 181470 Err:     0 (0.00%)
+summary +      8 in 00:00:33 =    0.2/s Avg: 195256 Min: 186329 Max: 205793 Err:     0 (0.00%) Active: 134 Started: 217 Finished: 83
+summary =     84 in 00:05:39 =    0.2/s Avg: 101093 Min:    62 Max: 205793 Err:     0 (0.00%)
+summary +    147 in 00:00:21 =    6.9/s Avg: 110472 Min:   675 Max: 220364 Err:   142 (96.60%) Active: 0 Started: 231 Finished: 231
+summary =    231 in 00:06:00 =    0.6/s Avg: 107061 Min:    62 Max: 220364 Err:   142 (61.47%)
+Tidying up ...    @ 2026 Oct 9 07:35:54 GMT+08:00 (1791502554762)
+... end of run

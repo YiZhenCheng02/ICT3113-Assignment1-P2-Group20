@@ -1,0 +1,186 @@
+row,final_label,status,predicted,error,elapsed_s
+20138,Credit card,201,Credit card,,1.847
+20738,Money transfer or service,201,Bank account or service,,3.492
+20732,Mortgage,201,Mortgage,,4.656
+20491,Credit reporting,201,Debt collection,,3.456
+20552,Debt collection,201,Debt collection,,1.898
+20642,Mortgage,201,Mortgage,,2.499
+20819,Mortgage,201,Mortgage,,2.764
+20001,Consumer loan,201,Consumer loan,,1.481
+20972,Mortgage,201,Mortgage,,1.5
+20482,Debt collection,201,Debt collection,,3.334
+20018,Money transfer or service,201,Bank account or service,,4.305
+20023,Mortgage,201,Mortgage,,3.675
+20125,Credit reporting,201,Debt collection,,1.722
+20281,Bank account or service,201,Bank account or service,,2.689
+20471,Mortgage,201,Debt collection,,3.694
+20767,Credit card,201,Debt collection,,2.062
+20486,Credit reporting,201,Debt collection,,2.156
+20592,Debt collection,201,Debt collection,,2.229
+20958,Mortgage,201,Mortgage,,2.837
+20639,Mortgage,201,Mortgage,,2.364
+20490,Credit reporting,201,Credit reporting,,2.757
+20708,Credit reporting,201,Credit reporting,,2.479
+20463,Credit card,201,Credit card,,3.7
+20745,Mortgage,201,Mortgage,,1.509
+20327,Credit card,201,Credit card,,3.098
+20521,Mortgage,201,Mortgage,,2.656
+20487,Debt collection,201,Debt collection,,2.308
+20185,Money transfer or service,201,Money transfer or service,,2.078
+20341,Credit reporting,201,Credit reporting,,4.12
+20345,Credit reporting,201,Consumer loan,,3.738
+20262,Credit reporting,201,Credit reporting,,3.15
+20686,Bank account or service,201,Bank account or service,,2.612
+20367,Mortgage,201,Mortgage,,4.685
+20160,Bank account or service,201,Bank account or service,,2.886
+20949,Bank account or service,201,Bank account or service,,1.606
+20114,Consumer loan,201,Debt collection,,2.843
+20630,Credit reporting,201,Credit reporting,,3.059
+20771,Credit reporting,201,Credit reporting,,1.611
+20086,Credit card,201,Credit card,,2.133
+20555,Money transfer or service,201,Money transfer or service,,2.853
+20991,Credit reporting,201,Credit reporting,,1.881
+20477,Bank account or service,201,Bank account or service,,3.268
+20612,Bank account or service,201,Bank account or service,,1.67
+20031,Mortgage,201,Mortgage,,2.161
+20566,Mortgage,201,Mortgage,,3.328
+20582,Debt collection,201,Debt collection,,2.305
+20515,Credit reporting,201,Mortgage,,3.2
+20688,Debt collection,201,Debt collection,,3.368
+20011,Credit reporting,201,Debt collection,,2.335
+20733,Debt collection,201,Mortgage,,2.092
+20969,Credit reporting,201,Credit reporting,,3.55
+20399,Credit reporting,201,Credit reporting,,3.387
+20308,Money transfer or service,201,Money transfer or service,,2.165
+20950,Consumer loan,201,Debt collection,,2.159
+20202,Bank account or service,201,Bank account or service,,1.806
+20795,Credit card,201,Credit card,,3.245
+20611,Bank account or service,201,Bank account or service,,2.443
+20335,Debt collection,201,Debt collection,,4.715
+20388,Money transfer or service,201,Debt collection,,3.698
+20742,Money transfer or service,201,Money transfer or service,,3.59
+20064,Money transfer or service,201,Money transfer or service,,2.539
+20551,Consumer loan,201,Debt collection,,3.12
+20257,Debt collection,201,Debt collection,,1.93
+20581,Credit reporting,201,Credit reporting,,1.479
+20470,Mortgage,201,Mortgage,,3.315
+20282,Consumer loan,201,Debt collection,,2.071
+20838,Credit reporting,201,Credit reporting,,1.47
+20216,Consumer loan,201,Consumer loan,,2.493
+20274,Credit reporting,201,Credit reporting,,3.143
+20761,Credit reporting,201,Debt collection,,2.544
+20641,Credit reporting,201,Credit reporting,,1.949
+20715,Credit card,201,Credit card,,2.173
+20476,Bank account or service,201,Bank account or service,,2.843
+20883,Consumer loan,201,Debt collection,,3.774
+20497,Credit reporting,201,Credit reporting,,2.067
+20922,Money transfer or service,201,Bank account or service,,3.273
+20355,Mortgage,201,Mortgage,,2.022
+20061,Money transfer or service,201,Money transfer or service,,1.725
+20014,Credit reporting,201,Bank account or service,,1.681
+20808,Consumer loan,201,Consumer loan,,2.42
+20910,Bank account or service,201,Bank account or service,,4.12
+20720,Mortgage,201,Mortgage,,3.102
+20519,Bank account or service,201,Debt collection,,1.908
+20252,Credit reporting,201,Credit reporting,,3.06
+20418,Bank account or service,201,Debt collection,,1.851
+20489,Debt collection,201,Debt collection,,2.472
+20655,Bank account or service,201,Bank account or service,,1.872
+20579,Bank account or service,201,Bank account or service,,1.526
+20535,Bank account or service,201,Bank account or service,,1.984
+20678,Bank account or service,201,Bank account or service,,2.14
+20426,Consumer loan,201,Consumer loan,,3.382
+20999,Credit card,201,Debt collection,,2.031
+20346,Bank account or service,201,Bank account or service,,3.29
+20178,Credit reporting,201,Debt collection,,1.862
+20850,Consumer loan,201,Consumer loan,,1.685
+20414,Consumer loan,201,Debt collection,,2.339
+20249,Money transfer or service,201,Bank account or service,,2.164
+20392,Consumer loan,201,Bank account or service,,3.793
+20891,Credit card,201,Credit card,,3.209
+20585,Consumer loan,201,Consumer loan,,1.327
+20620,Credit reporting,201,Credit reporting,,2.439
+20319,Credit reporting,201,Debt collection,,2.537
+20706,Credit card,201,Credit card,,3.11
+20101,Bank account or service,201,Credit card,,2.72
+20258,Bank account or service,201,Bank account or service,,1.826
+20003,Consumer loan,201,Consumer loan,,2.67
+20360,Bank account or service,201,Bank account or service,,2.393
+20909,Credit reporting,201,Credit reporting,,1.765
+20314,Consumer loan,201,Consumer loan,,1.457
+20464,Money transfer or service,201,Money transfer or service,,2.158
+20165,Debt collection,201,Debt collection,,1.579
+20651,Debt collection,201,Debt collection,,2.117
+20644,Money transfer or service,201,Money transfer or service,,2.558
+20589,Consumer loan,201,Consumer loan,,3.148
+20017,Mortgage,201,Mortgage,,3.038
+20626,Consumer loan,201,Consumer loan,,2.303
+20912,Credit reporting,201,Credit reporting,,2.082
+20529,Debt collection,201,Debt collection,,4.185
+20223,Credit reporting,201,Credit reporting,,1.906
+20313,Debt collection,201,Debt collection,,2.194
+20766,Money transfer or service,201,Money transfer or service,,2.274
+20913,Consumer loan,201,Debt collection,,4.138
+20517,Consumer loan,201,Debt collection,,1.642
+20861,Credit reporting,201,Debt collection,,2.346
+20932,Bank account or service,201,Bank account or service,,5.539
+20524,Credit card,201,Credit card,,3.461
+20858,Mortgage,201,Mortgage,,4.102
+20431,Mortgage,201,Mortgage,,4.789
+20672,Credit reporting,201,Debt collection,,2.996
+20217,Debt collection,201,Bank account or service,,1.979
+20619,Credit reporting,201,Mortgage,,4.008
+20091,Credit card,201,Credit card,,2.791
+20724,Bank account or service,201,Bank account or service,,2.891
+20587,Mortgage,201,Mortgage,,1.481
+20292,Money transfer or service,201,Debt collection,,2.539
+20334,Credit card,201,Credit card,,2.226
+20536,Money transfer or service,201,Money transfer or service,,4.042
+20844,Money transfer or service,201,Money transfer or service,,3.138
+20268,Credit reporting,201,Debt collection,,2.024
+20337,Mortgage,201,Mortgage,,3.672
+20256,Bank account or service,201,Bank account or service,,4.664
+20643,Credit card,201,Credit card,,1.537
+20553,Credit reporting,201,Debt collection,,2.203
+20356,Consumer loan,201,Debt collection,,1.984
+20502,Consumer loan,201,Debt collection,,4.337
+20109,Credit reporting,201,Credit reporting,,2.861
+20863,Credit card,201,Credit card,,1.632
+20734,Money transfer or service,201,Money transfer or service,,2.066
+20461,Bank account or service,201,Bank account or service,,3.186
+20618,Mortgage,201,Mortgage,,4.207
+20609,Mortgage,201,Mortgage,,2.48
+20680,Credit reporting,201,Credit reporting,,1.515
+20396,Bank account or service,201,Bank account or service,,1.388
+20242,Credit card,201,Credit card,,2.61
+20020,Credit reporting,201,Bank account or service,,4.161
+20440,Consumer loan,201,Consumer loan,,1.79
+20512,Credit card,201,Debt collection,,3.799
+20522,Money transfer or service,201,Bank account or service,,2.063
+20097,Money transfer or service,201,Bank account or service,,2.072
+20429,Mortgage,201,Mortgage,,3.447
+20577,Money transfer or service,201,Bank account or service,,2.251
+20662,Consumer loan,201,Consumer loan,,1.496
+20104,Credit reporting,201,Credit reporting,,1.564
+20150,Money transfer or service,201,Debt collection,,2.571
+20111,Debt collection,201,Debt collection,,1.717
+20792,Money transfer or service,201,Money transfer or service,,1.936
+20606,Debt collection,201,Debt collection,,2.994
+20973,Credit reporting,201,Mortgage,,3.213
+20518,Money transfer or service,201,Debt collection,,2.273
+20899,Money transfer or service,201,Money transfer or service,,2.076
+20176,Credit reporting,201,Credit reporting,,2.237
+20214,Credit reporting,201,Credit reporting,,2.509
+20501,Credit card,201,Debt collection,,4.353
+20571,Money transfer or service,201,Money transfer or service,,2.129
+20266,Money transfer or service,201,Money transfer or service,,2.071
+20159,Consumer loan,201,Consumer loan,,1.474
+20894,Credit reporting,201,Credit reporting,,1.63
+20374,Credit card,201,Bank account or service,,2.126
+20009,Bank account or service,201,Credit reporting,,2.221
+20980,Money transfer or service,201,Money transfer or service,,1.686
+20990,Bank account or service,201,Bank account or service,,3.845
+20596,Credit card,201,Credit card,,2.162
+20393,Debt collection,201,Debt collection,,3.517
+20243,Credit card,201,Credit card,,4.214
+20914,Credit reporting,201,Credit reporting,,3.339
