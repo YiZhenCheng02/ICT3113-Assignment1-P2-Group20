@@ -1,8 +1,6 @@
 # Labelling Protocol – ICT3113 Assignment 1, P2 Group 20
 
 **Version:** v2 (final, frozen with the golden set)
-**Date:** ________
-**Written by:** ________
 
 > **What changed from v1:** v2 adds the rules and examples that came out of our disagreement resolution meeting (54 tickets discussed). Every change is listed in Section 7 with the ticket that triggered it. Changed or new text is marked **[v2]**.
 
