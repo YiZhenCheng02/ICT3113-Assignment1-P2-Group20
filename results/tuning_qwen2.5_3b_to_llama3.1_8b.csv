@@ -1,0 +1,9 @@
+k,accept,escalated,escalated_pct,cascade_right,cascade_acc_pct,slipped,est_mean_s
+0,,93,100.0,83,89.2,0,8.0
+1,Money transfer or service,85,91.4,83,89.2,0,7.53
+2,Money transfer or service; Consumer loan,84,90.3,83,89.2,0,7.47
+3,Money transfer or service; Consumer loan; Credit reporting,54,58.1,80,86.0,7,5.7
+4,Money transfer or service; Consumer loan; Credit reporting; Credit card,46,49.5,79,84.9,9,5.23
+5,Money transfer or service; Consumer loan; Credit reporting; Credit card; Debt collection,43,46.2,78,83.9,10,5.06
+6,Money transfer or service; Consumer loan; Credit reporting; Credit card; Debt collection; Mortgage,22,23.7,68,73.1,20,3.82
+7,Money transfer or service; Consumer loan; Credit reporting; Credit card; Debt collection; Mortgage; Bank account or service,0,0.0,62,66.7,31,2.53
