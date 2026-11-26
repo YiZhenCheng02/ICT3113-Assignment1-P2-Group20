@@ -1,5 +1,13 @@
 # Assignment 2 escalation rule
 
+> **STATUS (A2 outcome):** the brief's memory check is **marginal** for this pair — see
+> `a2/memory_check.md`. On a long-lived WSL session every escalation is OOM-killed; after a full
+> reboot, a 10-probe stability gate passed (0 kernel kills, 8/8 escalations served). Accuracy was
+> measured on the held-out test set: **Setting 1 = 86.96% overall** (Credit card and Money
+> transfer fail their per-category floors by one ticket each), **Setting 2 = 89.13% overall**
+> (same two one-ticket misses). Both pass the overall limit (82.4%). Every measured run must start
+> from a fresh stack (`docker compose down && up`), never a long-lived session.
+
 ## Method
 
 Category-based escalation. The small model classifies every incoming ticket using the unchanged

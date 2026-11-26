@@ -1,0 +1,93 @@
+ref,row,category,status,elapsed_ms
+G112,20003,Consumer loan,201,38904
+G052,20011,Credit reporting,201,9936
+G123,20017,Mortgage,201,19533
+G167,20020,Credit reporting,201,23569
+G046,20031,Mortgage,201,9345
+G064,20064,Money transfer or service,201,8859
+G141,20091,Credit card,201,3119
+G110,20101,Bank account or service,201,9502
+G157,20109,Credit reporting,201,3594
+G038,20114,Consumer loan,201,3205
+G001,20138,Credit card,201,2149
+G190,20159,Consumer loan,201,1551
+G119,20165,Debt collection,201,5611
+G100,20178,Credit reporting,201,2195
+G058,20202,Bank account or service,201,6422
+G071,20216,Consumer loan,201,8899
+G127,20223,Credit reporting,201,2154
+G198,20243,Credit card,201,5061
+G088,20252,Credit reporting,201,3370
+G066,20257,Debt collection,201,6680
+G032,20262,Credit reporting,201,3816
+G149,20268,Credit reporting,201,2356
+G015,20281,Bank account or service,201,9636
+G145,20292,Money transfer or service,201,2962
+G128,20313,Credit reporting,201,2412
+G108,20319,Credit reporting,201,2781
+G146,20334,Bank account or service,201,8377
+G150,20337,Mortgage,201,14577
+G031,20345,Credit reporting,201,4402
+G080,20355,Mortgage,201,7198
+G115,20360,Bank account or service,201,8740
+G192,20374,Consumer loan,201,2653
+G104,20392,Consumer loan,201,15642
+G165,20396,Bank account or service,201,4674
+G102,20414,Consumer loan,201,8155
+G096,20426,Consumer loan,201,11339
+G136,20431,Mortgage,201,16864
+G160,20461,Bank account or service,201,10900
+G118,20464,Money transfer or service,201,2400
+G016,20471,Debt collection,201,12690
+G044,20477,Bank account or service,201,11684
+G018,20486,Credit reporting,201,2268
+G091,20489,Debt collection,201,8493
+G005,20491,Credit reporting,201,3676
+G187,20501,Credit card,201,5155
+G169,20512,Credit card,201,4186
+G131,20517,Debt collection,201,5308
+G087,20519,Bank account or service,201,7203
+G170,20522,Bank account or service,201,7409
+G126,20529,Debt collection,201,15045
+G147,20536,Money transfer or service,201,4589
+G006,20552,Credit reporting,201,6649
+G042,20555,Money transfer or service,201,9991
+G188,20571,Money transfer or service,201,2506
+G093,20579,Bank account or service,201,5528
+G048,20582,Credit reporting,201,2499
+G143,20587,Mortgage,201,4843
+G019,20592,Debt collection,201,7627
+G181,20606,Debt collection,201,11223
+G060,20611,Bank account or service,201,8534
+G161,20618,Mortgage,201,15245
+G107,20620,Credit reporting,201,3073
+G039,20630,Credit reporting,201,3647
+G074,20641,Credit reporting,201,2445
+G153,20643,Credit card,201,1706
+G120,20651,Debt collection,201,7679
+G175,20662,Consumer loan,201,5487
+G095,20678,Bank account or service,201,6997
+G034,20686,Bank account or service,201,9157
+G109,20706,Credit card,201,4107
+G075,20715,Credit card,201,2345
+G142,20724,Bank account or service,201,8011
+G053,20733,Consumer loan,201,6911
+G003,20738,Money transfer or service,201,4217
+G025,20745,Mortgage,201,5172
+G129,20766,Bank account or service,201,6943
+G040,20771,Credit reporting,201,1699
+G059,20795,Credit card,201,3753
+G008,20819,Mortgage,201,11019
+G148,20844,Money transfer or service,201,3710
+G135,20858,Mortgage,201,14836
+G158,20863,Credit card,201,6133
+G105,20891,Credit reporting,201,3510
+G184,20899,Money transfer or service,201,2495
+G085,20910,Bank account or service,201,16043
+G130,20913,Consumer loan,201,12934
+G079,20922,Bank account or service,201,11292
+G037,20949,Bank account or service,201,5340
+G020,20958,Mortgage,201,9163
+G010,20972,Mortgage,201,4933
+G194,20980,Money transfer or service,201,1887
+G043,20991,Credit reporting,201,2265
