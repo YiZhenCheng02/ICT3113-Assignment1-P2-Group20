@@ -66,10 +66,14 @@ if a.median:
     times = [x["elapsed_ms"] / 1000 for x in results]
     S = statistics.median(times)
     gap = 2 * S
-    run_min = max(5, round(S))
-    timeout_s = max(300, round(10 * S))
-    print(f"\nTimes (s): {[round(t, 1) for t in times]}  ->  S = middle = {S:.1f} s")
-    print(f"Arrival rate: 1 ticket every {gap:.1f} s = {60 / gap:.2f} tickets/min")
-    print(f"Run length: {run_min} min (S minutes, min 5)  -> ~{run_min * 60 / gap:.0f} tickets per run")
-    print(f"JMeter response timeout: {timeout_s} s (10 x S, min 300 s); "
-          f"schedule pause: at least {-(-(timeout_s + 60) // 60)} min (timeout + at least 1 min)")
+    # Speed-test set-up rules from the brief (Step 4, "Set-up" and "Let slow requests finish"):
+    run_s = max(300, round(60 * S))           # run for S MINUTES, minimum 5 (S = 5.4 s -> 5.4 min = 324 s; not rounded to whole minutes)
+    timeout_s = max(300, round(10 * S))       # HTTP response timeout = 10 x S seconds, minimum 5 minutes
+    pause_min = -(-(timeout_s + 60) // 60)    # schedule pause must outlast the timeout by at least 1 minute
+    per_min = 60 / gap
+    print(f"\nTimes (s): {[round(t, 2) for t in times]}  ->  S = middle = {S:.2f} s")
+    print(f"Arrival rate: 1 ticket every {gap:.1f} s = {per_min:.2f} tickets/min "
+          f"({per_min * 60:.0f}/hour; A1 client peak was 19/hour)")
+    print(f"Run length: {run_s} s = {run_s / 60:.1f} min (S minutes, min 5)  -> ~{run_s / gap:.0f} tickets per run")
+    print(f"JMeter HTTP response timeout: {timeout_s} s = {timeout_s * 1000} ms (10 x S, min 300 s)")
+    print(f"JMeter Open Model schedule: rate({per_min:.2f}/min) random_arrivals({run_s} s) pause({pause_min} min)")
