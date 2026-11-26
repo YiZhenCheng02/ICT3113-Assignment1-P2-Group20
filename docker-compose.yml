@@ -1,17 +1,25 @@
-# ICT3113 A2 - Ticket Triage Service
+# ICT3113 A2 - P2 Group 20: Ticket Triage Service (A1 baseline + A2 cascade option)
+# Start:          docker compose up -d --build
+# Change config:  edit .env (copy of .env.example), then  docker compose up -d --build --force-recreate triage
+#
+# Held CONSTANT for every A2 configuration (brief, Scope: Ollama inference settings such as thread
+# count, parallelism and context length must not change between configurations):
+#   OLLAMA_NUM_PARALLEL, OLLAMA_MAX_LOADED_MODELS, OLLAMA_KEEP_ALIVE, NUM_CTX and the prompt file.
 services:
   ollama:
-    image: ollama/ollama:${OLLAMA_VERSION}
+    image: ollama/ollama:${OLLAMA_VERSION}   # pinned in .env (A1: 0.40.0); no fallback, so a missing pin fails loudly
     container_name: g20-ollama
     ports:
       - "11434:11434"
     volumes:
-      - ollama_models:/root/.ollama
+      - ollama_models:/root/.ollama      # downloaded models survive container restarts
     environment:
-      - OLLAMA_NUM_PARALLEL=1
-      # Cascade requires two models to be resident at the same time.
-      - OLLAMA_MAX_LOADED_MODELS=${OLLAMA_MAX_LOADED_MODELS:-2}
-      - OLLAMA_KEEP_ALIVE=-1
+      # CPU only: no GPU is requested anywhere in this file (brief: CPU-only Ollama).
+      - OLLAMA_NUM_PARALLEL=1            # one generation at a time (same as A1)
+      # A2 CHANGE (A1 used 1): the cascade's small AND large model must be resident at the same time
+      # (brief, Step 2 "Memory"). Fixed at 2 here, not in .env, so it cannot differ between configurations.
+      - OLLAMA_MAX_LOADED_MODELS=2
+      - OLLAMA_KEEP_ALIVE=-1             # never unload a model after an idle gap (same as A1)
     restart: unless-stopped
 
   triage:
@@ -23,25 +31,27 @@ services:
       - ollama
     environment:
       - OLLAMA_URL=http://ollama:11434
-      - MODEL=${MODEL:-qwen2.5:3b}
-      - CLASSIFICATION_MODE=${CLASSIFICATION_MODE:-single}
-      - SMALL_MODEL=${SMALL_MODEL:-llama3.2:3b}
-      - LARGE_MODEL=${LARGE_MODEL:-llama3.1:8b}
-      - CASCADE_SETTING=${CASCADE_SETTING:-1}
-      - CASCADE_ACCEPT_SETTING_1=${CASCADE_ACCEPT_SETTING_1:-}
-      - CASCADE_ACCEPT_SETTING_2=${CASCADE_ACCEPT_SETTING_2:-}
-      - RUN_ID=${RUN_ID:-manual}
-      - NUM_CTX=${NUM_CTX:-4096}
+      # --- Which configuration is running (A2). Values come from .env; see .env.example. ---
+      - CLASSIFICATION_MODE=${CLASSIFICATION_MODE:-single}       # single = one model (A1); cascade = small -> large
+      - MODEL=${MODEL:-qwen2.5:3b}                               # the model used in single mode
+      - SMALL_MODEL=${SMALL_MODEL:-llama3.2:3b}                  # cascade: answers every ticket first
+      - LARGE_MODEL=${LARGE_MODEL:-llama3.1:8b}                  # cascade: answers escalated tickets
+      - CASCADE_SETTING=${CASCADE_SETTING:-1}                    # 1 = strict accept list, 2 = loose
+      - CASCADE_ACCEPT_SETTING_1=${CASCADE_ACCEPT_SETTING_1:-}   # strict list (a2/escalation_rule.md)
+      - CASCADE_ACCEPT_SETTING_2=${CASCADE_ACCEPT_SETTING_2:-}   # loose list  (a2/escalation_rule.md)
+      - RUN_ID=${RUN_ID:-manual}                                 # tag written into every log line, e.g. acc-cascade-s1
+      # --- Fixed from A1 ---
+      - NUM_CTX=${NUM_CTX:-4096}                                 # context window sent on every Ollama call
       - OLLAMA_TIMEOUT_S=${OLLAMA_TIMEOUT_S:-600}
-      - PROMPT_PATH=/app/prompts/classify_v1.txt
+      - PROMPT_PATH=/app/prompts/classify_v1.txt                 # the unchanged A1 classification prompt
       - DB_PATH=/data/tickets.db
       - LOG_PATH=/logs/requests.jsonl
       - GUNICORN_WORKERS=1
       - GUNICORN_THREADS=8
     volumes:
-      - ./prompts:/app/prompts:ro
-      - ./logs:/logs
-      - ./data:/data
+      - ./prompts:/app/prompts:ro        # prompt is versioned in the repo and mounted read-only
+      - ./logs:/logs                     # request logs land in the repo's logs/ folder (commit them; never delete)
+      - ./data:/data                     # SQLite database (not committed; emptied at every container start)
     restart: unless-stopped
 
 volumes:

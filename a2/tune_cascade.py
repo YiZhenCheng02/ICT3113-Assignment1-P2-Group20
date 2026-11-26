@@ -12,6 +12,13 @@ Rule:
 The true label is used only to evaluate simulated outcomes. It is never used to make
 the accept/escalate decision.
 
+Where this fits in Assignment 2: brief Step 2 ("Design the Cascade"), example method 1
+(category-based). The brief says to choose the reliable categories "from the small model's
+results on the tuning set only" and to "check how often a wrong answer slips through"; both are
+printed below. The two settings chosen from this output (strict k=5, loose k=6 for
+llama3.2_3b -> llama3.1_8b) are written up in a2/escalation_rule.md. The per-ticket median latency
+and escalation fraction feed the Step 3 prediction record (predictions_A2.md).
+
 Run from the repository root:
     python a2/tune_cascade.py
     python a2/tune_cascade.py --small llama3.2_3b --large llama3.1_8b
@@ -278,7 +285,7 @@ def main():
         raise ValueError("--tolerance-pp cannot be negative.")
 
     print("=" * 100)
-    print("CASCADE TUNING — TUNING SET ONLY")
+    print("CASCADE TUNING - TUNING SET ONLY")   # ASCII only: Windows consoles mangle the em dash
     print("=" * 100)
     print(f"Tuning file: {args.tuning}")
     print(f"Tuning tickets: {n}")

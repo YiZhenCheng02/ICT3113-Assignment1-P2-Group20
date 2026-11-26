@@ -1,5 +1,5 @@
 """
-Ticket Triage Service - ICT3113 Assignment 1, P2 Group 20 (BASELINE)
+Ticket Triage Service - ICT3113 P2 Group 20 (A1 baseline + A2 cascade option)
 
 Endpoints:
     POST /tickets   classify one ticket narrative with the LLM (Ollama), store it, return the category
@@ -13,6 +13,32 @@ This is the BASELINE on purpose (Assignment 1 says "do not pre-optimise"):
     - no caching, no queue, no async workers
     - plain SQLite, no indexes, search is a simple LIKE '%q%'
 Assignment 2 is where we optimise, so we want this version to be simple and measurable.
+
+ASSIGNMENT 2 CHANGES (brief, Step 2 "Design the Cascade"; search this file for "A2")
+    A2 adds ONE thing: an optional two-model CASCADE inside POST /tickets ("The cascade is
+    implemented within POST /tickets"). Everything the brief fixes from A1 is untouched: the prompt
+    file and its hash, the 7 categories, the strict parser, temperature 0 and num_ctx (NUM_CTX), the
+    endpoints and their responses, and there is still no caching of classification results.
+
+    CLASSIFICATION_MODE=single   A1 behaviour: MODEL answers every ticket. Used for the
+                                 "top model alone" and "other models alone" configurations.
+    CLASSIFICATION_MODE=cascade  SMALL_MODEL answers first. If its PREDICTED category is in the
+                                 accept list of CASCADE_SETTING (1 = strict, 2 = loose), that answer
+                                 is returned; otherwise the ticket is escalated to LARGE_MODEL, whose
+                                 answer is final. The rule and both settings are in
+                                 a2/escalation_rule.md (chosen on a2/tuning_set.csv only).
+
+    What changed for A2:
+      1. Config block "classification mode": reads the cascade settings and refuses to start on a
+         misconfiguration (empty or misspelt accept list), so a run can never be mislabelled.
+      2. classify(narrative, model=None): the same A1 call, but it can target either model.
+      3. create_ticket(): the routing (small model -> accept, or escalate -> large model).
+      4. Logging: every POST line records final_model, escalated and escalation_reason. The brief
+         requires the log to show "which model produced the final classification and whether
+         escalation occurred", so the escalation fraction can be counted from the logs (slides 4-5).
+      5. The response's "model" field is only the configuration label in cascade mode ("the caller
+         should not be able to tell which model produced the answer").
+    Both cascade models must stay loaded together: docker-compose.yml fixes OLLAMA_MAX_LOADED_MODELS=2.
 
 Every request is logged as one JSON line in logs/requests.jsonl so that every number
 in our report can be traced back to a log entry (and matched with the JMeter .jtl files).
@@ -50,6 +76,37 @@ CATEGORIES = [
     "Consumer loan",
     "Money transfer or service",
 ]
+
+# ---- Assignment 2: classification mode ---------------------------------------------------------
+# CLASSIFICATION_MODE=single  -> exactly the A1 behaviour: MODEL answers every ticket.
+# CLASSIFICATION_MODE=cascade -> SMALL_MODEL classifies every ticket first (same prompt, same options).
+#   If its PARSED category is in the acceptance list of the selected CASCADE_SETTING (1 or 2), that answer
+#   is accepted. Otherwise (a category not in the list, or an unparseable reply) the ticket is ESCALATED
+#   to LARGE_MODEL, whose answer is final. The decision uses only the small model's predicted category.
+CLASSIFICATION_MODE = os.getenv("CLASSIFICATION_MODE", "single").strip().lower()
+if CLASSIFICATION_MODE not in ("single", "cascade"):
+    raise RuntimeError(f"CLASSIFICATION_MODE must be 'single' or 'cascade', got {CLASSIFICATION_MODE!r}")
+CASCADE = CLASSIFICATION_MODE == "cascade"
+SMALL_MODEL = os.getenv("SMALL_MODEL", "").strip()
+LARGE_MODEL = os.getenv("LARGE_MODEL", "").strip()
+CASCADE_SETTING = os.getenv("CASCADE_SETTING", "1").strip()
+ACCEPT_CATEGORIES = []
+if CASCADE:
+    # Fail fast on any misconfiguration: a silent fallback would produce a mislabelled result.
+    if not SMALL_MODEL or not LARGE_MODEL:
+        raise RuntimeError("cascade mode needs both SMALL_MODEL and LARGE_MODEL")
+    if CASCADE_SETTING not in ("1", "2"):
+        raise RuntimeError(f"CASCADE_SETTING must be 1 or 2, got {CASCADE_SETTING!r}")
+    ACCEPT_CATEGORIES = [c.strip() for c in os.getenv(f"CASCADE_ACCEPT_SETTING_{CASCADE_SETTING}", "").split(",")
+                         if c.strip()]
+    if not ACCEPT_CATEGORIES:
+        raise RuntimeError(f"CASCADE_ACCEPT_SETTING_{CASCADE_SETTING} is empty")
+    _unknown = [c for c in ACCEPT_CATEGORIES if c not in CATEGORIES]
+    if _unknown:   # a typo would silently escalate every ticket
+        raise RuntimeError(f"CASCADE_ACCEPT_SETTING_{CASCADE_SETTING} has unknown categories: {_unknown}")
+# What the caller (and the log's "model" field) sees: the model name in single mode, only the configuration
+# label in cascade mode, so the caller cannot tell which model produced the answer (brief, Step 2).
+SERVICE_MODEL = f"cascade-setting{CASCADE_SETTING}" if CASCADE else MODEL
 
 # The classification prompt is loaded from a file (mounted read-only into the container) so the
 # exact wording is versioned and hashed. It is a condensed copy of the team's labelling protocol:
@@ -166,12 +223,12 @@ def parse_category(text):
     return None
 
 
-def classify(narrative):
+def classify(narrative, model=None):
     """ONE synchronous call to Ollama. No retries, no cache, no batching (baseline).
     Returns the raw reply, the wall-clock time and Ollama's own timing stats. Parsing is left
     to the caller so that an unparseable reply can still be logged in full."""
     payload = {
-        "model": MODEL,
+        "model": model or MODEL,
         "prompt": PROMPT_TEMPLATE.replace("{narrative}", narrative),
         "stream": False,
         "options": {"temperature": 0, "num_ctx": NUM_CTX},   # deterministic + explicit context window
@@ -219,7 +276,8 @@ def log_request(response):
         "path": request.path,
         "status": response.status_code,
         "latency_ms": round((time.perf_counter() - g.t0) * 1000, 2),  # total time inside our service
-        "model": MODEL,
+        "model": SERVICE_MODEL,                    # A2: MODEL in single mode; "cascade-settingN" in cascade mode
+        "mode": CLASSIFICATION_MODE,               # A2: single or cascade (the answering model is in final_model)
     }
     entry.update(g.extra)                          # endpoint-specific fields (category, model timings, ...)
     req_logger.info(json.dumps(entry))
@@ -250,7 +308,42 @@ def create_ticket():
         return jsonify(error="request body must contain a ticket narrative"), 400
 
     try:
-        raw, model_ms, ollama_stats = classify(narrative)
+        if not CASCADE:
+            # ---- Single-model mode: unchanged from A1 ----
+            raw, model_ms, ollama_stats = classify(narrative)
+            category, final_model = parse_category(raw), MODEL
+            g.extra.update({"escalated": False})
+        else:
+            # ---- A2 cascade (brief, Step 2; rule in a2/escalation_rule.md) ----
+            # Step 1 of the rule: the small model classifies EVERY ticket with the unchanged A1 prompt.
+            s_raw, s_ms, s_stats = classify(narrative, SMALL_MODEL)
+            s_cat = parse_category(s_raw)
+            if s_cat is None:
+                reason = "invalid_small_model_output"
+            elif s_cat not in ACCEPT_CATEGORIES:
+                reason = "predicted_category_not_accepted"
+            else:
+                reason = None
+            # Step 2 of the rule: accept only if the small model's PREDICTED category is in the accept
+            # list. The true label is never available here, so it is never used.
+            escalated = reason is not None
+            # Logged for every ticket -> escalation fraction per run, and accuracy of escalated vs
+            # accepted tickets (brief, Step 4; slides 4 and 5). small_load_ms ~ 0 shows the small
+            # model was already resident (no reload), which supports the memory check (Step 2).
+            g.extra.update({"cascade_setting": int(CASCADE_SETTING), "small_model": SMALL_MODEL,
+                            "large_model": LARGE_MODEL, "small_prediction": s_cat,
+                            "small_raw_output": s_raw[:200], "small_model_ms": round(s_ms, 2),
+                            "small_load_ms": round(s_stats["ollama_load_ms"], 2),
+                            "escalated": escalated, "escalation_reason": reason})
+            if not escalated:
+                raw, model_ms, ollama_stats, category, final_model = s_raw, s_ms, s_stats, s_cat, SMALL_MODEL
+            else:
+                # ---- Step 3 of the rule: escalate; the large model's answer is final ----
+                # large_load_ms ~ 0 means the large model was still loaded (no swap between models).
+                raw, l_ms, ollama_stats = classify(narrative, LARGE_MODEL)
+                category, final_model, model_ms = parse_category(raw), LARGE_MODEL, s_ms + l_ms
+                g.extra.update({"large_prediction": category, "large_model_ms": round(l_ms, 2),
+                                "large_load_ms": round(ollama_stats["ollama_load_ms"], 2)})
     except requests.Timeout:
         g.extra["error"] = "ollama timeout"
         return jsonify(error="model backend timed out"), 504
@@ -258,12 +351,11 @@ def create_ticket():
         g.extra["error"] = f"ollama error: {e}"
         return jsonify(error="model backend unavailable"), 502
 
-    digest = get_model_digest(MODEL)
-    category = parse_category(raw)
+    digest = get_model_digest(final_model)
     if category is None:
         # Invalid model output: do NOT store it. Log everything needed to analyse the failure.
         g.extra["error"] = "invalid model output"
-        g.extra.update({"raw_output": raw[:200], "model_digest": digest,
+        g.extra.update({"final_model": final_model, "raw_output": raw[:200], "model_digest": digest,
                         "model_ms": round(model_ms, 2), **ollama_stats})
         return jsonify(error="model returned an invalid category"), 502
 
@@ -271,13 +363,15 @@ def create_ticket():
         cur = conn.execute(
             "INSERT INTO tickets (created_at, request_id, ref, narrative, category, raw_output, model, model_digest, model_ms) "
             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            (g.received_at, g.request_id, ref, narrative, category, raw, MODEL, digest, model_ms),
+            (g.received_at, g.request_id, ref, narrative, category, raw, final_model, digest, model_ms),
         )
         ticket_id = cur.lastrowid
 
-    g.extra.update({"ticket_id": ticket_id, "category": category, "raw_output": raw[:200],
+    # final_model = which model produced the answer (the brief requires this in the log).
+    # model_ms = total model time for this ticket (small + large when escalated).
+    g.extra.update({"ticket_id": ticket_id, "category": category, "final_model": final_model, "raw_output": raw[:200],
                     "model_digest": digest, "model_ms": round(model_ms, 2), **ollama_stats})
-    return jsonify(id=ticket_id, category=category, model=MODEL, request_id=g.request_id), 201
+    return jsonify(id=ticket_id, category=category, model=SERVICE_MODEL, request_id=g.request_id), 201
 
 
 @app.get("/search")
@@ -311,7 +405,9 @@ def stats():
 
 @app.get("/health")
 def health():
-    return jsonify(status="ok", model=MODEL, run_id=RUN_ID)
+    return jsonify(status="ok", mode=CLASSIFICATION_MODE, model=SERVICE_MODEL, run_id=RUN_ID,
+                   small_model=SMALL_MODEL if CASCADE else None, large_model=LARGE_MODEL if CASCADE else None,
+                   cascade_setting=int(CASCADE_SETTING) if CASCADE else None, accept_categories=ACCEPT_CATEGORIES)
 
 
 init_db()

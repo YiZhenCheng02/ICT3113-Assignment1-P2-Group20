@@ -113,13 +113,12 @@ CLASSIFICATION_MODE=cascade
 SMALL_MODEL=llama3.2:3b
 LARGE_MODEL=llama3.1:8b
 CASCADE_SETTING=1
-CASCADE_ACCEPT_SETTING_1=Consumer loan,Money transfer or service
-CASCADE_ACCEPT_SETTING_2=Consumer loan,Credit card
-OLLAMA_MAX_LOADED_MODELS=2
+CASCADE_ACCEPT_SETTING_1=Consumer loan,Money transfer or service,Credit card,Credit reporting,Mortgage
+CASCADE_ACCEPT_SETTING_2=Consumer loan,Money transfer or service,Credit card,Credit reporting,Mortgage,Bank account or service
 ```
 
-The categories above are illustrative only; do not use them unless they match your selected
-tuning settings.
+These are the two settings recorded in `a2/escalation_rule.md` (strict = setting 1, loose =
+setting 2). `OLLAMA_MAX_LOADED_MODELS=2` is fixed in `docker-compose.yml`.
 
 Recreate the service after changing `.env`:
 
@@ -127,8 +126,10 @@ Recreate the service after changing `.env`:
 docker compose up -d --build --force-recreate triage
 ```
 
-For a fresh accuracy run, follow the existing project procedure for clearing/recreating the
-service database and log file. Do not mix logs from different configurations.
+Give every run its own `RUN_ID` (for example `acc-cascade-s1`); the analysis scripts filter the
+log by `RUN_ID`. Recreating the `triage` container already starts with an empty database (the
+Dockerfile deletes it at start). **Never delete or clear `logs/requests.jsonl`:** the brief requires
+every service log to be kept, and the A1 evidence is in the same file.
 
 ### Cascade logs
 
