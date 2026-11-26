@@ -1,0 +1,9 @@
+k,accept,accepted_categories_count,accepted,accepted_pct,accepted_right,accepted_accuracy_pct,escalated,escalated_pct,escalated_right,escalated_accuracy_pct,cascade_right,cascade_wrong,cascade_acc_pct,slipped,per_ticket_mean_s,per_ticket_median_s,simplified_mean_s,large_only_mean_s,faster_than_large_only_estimate
+0,,0,0,0.0,0,,93,100.0,81,87.1,81,12,87.1,0,7.7533,6.877,7.7533,5.2243,False
+1,Money transfer or service,1,8,8.6,8,100.0,85,91.4,73,85.88,81,12,87.1,0,7.3936,6.85,7.3039,5.2243,False
+2,Money transfer or service; Consumer loan,2,9,9.68,9,100.0,84,90.32,72,85.71,81,12,87.1,0,7.3479,6.85,7.2478,5.2243,False
+3,Money transfer or service; Consumer loan; Credit reporting,3,39,41.94,32,82.05,54,58.06,46,85.19,78,15,83.87,7,5.7206,4.923,5.5625,5.2243,False
+4,Money transfer or service; Consumer loan; Credit reporting; Credit card,4,47,50.54,38,80.85,46,49.46,41,89.13,79,14,84.95,9,5.2474,4.105,5.1131,5.2243,False
+5,Money transfer or service; Consumer loan; Credit reporting; Credit card; Debt collection,5,50,53.76,40,80.0,43,46.24,38,88.37,78,15,83.87,10,5.0113,3.624,4.9446,5.2243,True
+6,Money transfer or service; Consumer loan; Credit reporting; Credit card; Debt collection; Mortgage,6,71,76.34,51,71.83,22,23.66,19,86.36,70,23,75.27,20,3.7959,2.72,3.7649,5.2243,True
+7,Money transfer or service; Consumer loan; Credit reporting; Credit card; Debt collection; Mortgage; Bank account or service,7,93,100.0,62,66.67,0,0.0,0,,62,31,66.67,31,2.529,2.274,2.529,5.2243,True
