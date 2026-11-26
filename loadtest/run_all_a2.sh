@@ -19,7 +19,7 @@ C2=loadtest@192.168.1.44
 SSHPASS_VAL=$(grep -oP "SSHPASS='\K[^']+" loadtest/run_all.sh)
 export SSHPASS="$SSHPASS_VAL"
 JMETER='D:\jmeter\apache-jmeter-5.6.3\bin\jmeter.bat'
-REMOTE_DIR='C:\Users\loadtest\loadtest'
+REMOTE_DIR='C:\Users\loadtest.ICUP\loadtest'
 HOST=192.168.1.42
 PORT=8000
 RATE_PER_MIN=3.24
@@ -33,14 +33,14 @@ MODE="${1:-trial}"
 mkdir -p results/a2/jtl
 PROG=results/a2/progress.log
 log(){ echo "$(date '+%F %T') $*" | tee -a "$PROG"; }
-rssh(){ sshpass -e ssh -o StrictHostKeyChecking=no "$C2" "$@"; }
-rget(){ sshpass -e scp -q -o StrictHostKeyChecking=no "$C2:$REMOTE_DIR\\a2\\results\\$1" results/a2/jtl/ 2>/dev/null \
-        || sshpass -e scp -q -o StrictHostKeyChecking=no "$C2:loadtest/a2/results/$1" results/a2/jtl/; }
+rssh(){ sshpass -e ssh -o StrictHostKeyChecking=no -o ConnectTimeout=10 "$C2" "$@"; }
+rget(){ sshpass -e scp -q -o StrictHostKeyChecking=no -o ConnectTimeout=10 "$C2:$REMOTE_DIR\\a2\\results\\$1" results/a2/jtl/ 2>/dev/null \
+        || sshpass -e scp -q -o StrictHostKeyChecking=no -o ConnectTimeout=10 "$C2:loadtest/a2/results/$1" results/a2/jtl/; }
 
 # Copy the A2 plan and workload to Computer 2 (idempotent).
 push_files(){
   rssh "if not exist $REMOTE_DIR\\a2\\results mkdir $REMOTE_DIR\\a2\\results" >/dev/null 2>&1
-  sshpass -e scp -q -o StrictHostKeyChecking=no a2/plan_a2.jmx "a2/workload_rows.csv" "$C2:$REMOTE_DIR/a2/" || return 1
+  sshpass -e scp -q -o StrictHostKeyChecking=no -o ConnectTimeout=10 a2/plan_a2.jmx "a2/workload_rows.csv" "$C2:$REMOTE_DIR/a2/" || return 1
 }
 
 start_service(){ # $1 tag; remaining env for compose are set by the caller
