@@ -15,12 +15,12 @@
 set -u
 cd "$(dirname "$0")/.."
 
-C2=loadtest@192.168.1.11
+C2=loadtest@192.168.1.44
 SSHPASS_VAL=$(grep -oP "SSHPASS='\K[^']+" loadtest/run_all.sh)
 export SSHPASS="$SSHPASS_VAL"
 JMETER='D:\jmeter\apache-jmeter-5.6.3\bin\jmeter.bat'
 REMOTE_DIR='C:\Users\loadtest\loadtest'
-HOST=192.168.1.14
+HOST=192.168.1.42
 PORT=8000
 RATE_PER_MIN=3.24
 RUN_S=555
