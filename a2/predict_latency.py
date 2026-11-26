@@ -7,7 +7,7 @@ Inputs (all committed before any A2 test; no test-set result is used):
     Fit elapsed_s = a + b x words per model (ticket length explains almost all of the time, r ~ 0.97).
   * a2/s_rows.csv       : the 3 tickets S will be measured on -> predicted S = median of their fitted times.
   * a2/workload_rows.csv: the fixed speed-test tickets, in JMeter order.
-  * results/tuning_llama3.2_3b_to_llama3.1_8b.csv : escalation fraction of the strict (k=5) and loose (k=6) settings.
+  * results/tuning_qwen2.5_3b_to_qwen2.5_7b.csv : escalation fraction of the strict and loose settings.
 
 Speed-test rules from the brief: one ticket every 2 x S on average (random arrivals), run length S minutes (min 5).
 
@@ -21,6 +21,7 @@ Response time = waiting time + service time. Queueing is reduced at lower utilis
 
 Run from the repo root (deterministic for a given --seed):
     python a2/predict_latency.py
+    python a2/predict_latency.py --small qwen2.5_3b --large qwen2.5_7b
 """
 import argparse
 
@@ -28,6 +29,10 @@ import numpy as np
 import pandas as pd
 
 p = argparse.ArgumentParser()
+p.add_argument("--small", default="qwen2.5_3b",
+               help="Small-model raw CSV stem, without _raw.csv")
+p.add_argument("--large", default="qwen2.5_7b",
+               help="Large-model raw CSV stem, without _raw.csv")
 p.add_argument("--s-rows", default="a2/s_rows.csv")
 p.add_argument("--reps", type=int, default=4000, help="simulated runs per configuration")
 p.add_argument("--seed", type=int, default=20)
@@ -38,7 +43,9 @@ tune = pd.read_csv("a2/tuning_set.csv")
 tune["words"] = tune["narrative"].str.split().str.len()
 work = pd.read_csv("a2/workload_rows.csv")
 srows = pd.read_csv(a.s_rows)
-k_table = pd.read_csv("results/tuning_llama3.2_3b_to_llama3.1_8b.csv").set_index("k")
+k_table = pd.read_csv(
+    f"results/tuning_{a.small}_to_{a.large}.csv"
+).set_index("k")
 
 
 def fit(model):
@@ -52,8 +59,8 @@ def fit(model):
     return c, b, resid
 
 
-large = fit("llama3.1_8b")
-small = fit("llama3.2_3b")
+large = fit(a.large)
+small = fit(a.small)
 
 S = float(np.median(large[0] + large[1] * srows["words"]))
 gap = 2 * S
@@ -96,9 +103,9 @@ def simulate(f):
             np.mean(work_s) / gap)
 
 
-configs = [("top model alone (llama3.1:8b)", None),
-           (f"cascade strict (k=5, f={k_table.loc[5, 'escalated_pct']:.1f}%)", k_table.loc[5, "escalated_pct"] / 100),
-           (f"cascade loose  (k=6, f={k_table.loc[6, 'escalated_pct']:.1f}%)", k_table.loc[6, "escalated_pct"] / 100)]
+configs = [(f"large model alone ({a.large})", None),
+           (f"cascade strict (k=4, f={k_table.loc[4, 'escalated_pct']:.1f}%)", k_table.loc[4, "escalated_pct"] / 100),
+           (f"cascade loose  (k=5, f={k_table.loc[5, 'escalated_pct']:.1f}%)", k_table.loc[5, "escalated_pct"] / 100)]
 print(f"{'configuration':<36}{'p50 (mean of runs)':>20}{'single-run p50, 10-90%':>26}{'pooled p95':>12}{'utilisation':>13}")
 for name, f in configs:
     p50, band, p95, util = simulate(f)

@@ -34,8 +34,8 @@ services:
       # --- Which configuration is running (A2). Values come from .env; see .env.example. ---
       - CLASSIFICATION_MODE=${CLASSIFICATION_MODE:-single}       # single = one model (A1); cascade = small -> large
       - MODEL=${MODEL:-qwen2.5:3b}                               # the model used in single mode
-      - SMALL_MODEL=${SMALL_MODEL:-llama3.2:3b}                  # cascade: answers every ticket first
-      - LARGE_MODEL=${LARGE_MODEL:-llama3.1:8b}                  # cascade: answers escalated tickets
+      - SMALL_MODEL=${SMALL_MODEL:-qwen2.5:3b}                  # cascade: answers every ticket first
+      - LARGE_MODEL=${LARGE_MODEL:-qwen2.5:7b}                  # cascade: answers escalated tickets
       - CASCADE_SETTING=${CASCADE_SETTING:-1}                    # 1 = strict accept list, 2 = loose
       - CASCADE_ACCEPT_SETTING_1=${CASCADE_ACCEPT_SETTING_1:-}   # strict list (a2/escalation_rule.md)
       - CASCADE_ACCEPT_SETTING_2=${CASCADE_ACCEPT_SETTING_2:-}   # loose list  (a2/escalation_rule.md)

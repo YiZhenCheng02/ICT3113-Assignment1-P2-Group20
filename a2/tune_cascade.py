@@ -15,14 +15,12 @@ the accept/escalate decision.
 Where this fits in Assignment 2: brief Step 2 ("Design the Cascade"), example method 1
 (category-based). The brief says to choose the reliable categories "from the small model's
 results on the tuning set only" and to "check how often a wrong answer slips through"; both are
-printed below. The two settings chosen from this output (strict k=5, loose k=6 for
-llama3.2_3b -> llama3.1_8b) are written up in a2/escalation_rule.md. The per-ticket median latency
-and escalation fraction feed the Step 3 prediction record (predictions_A2.md).
+printed below. Choose the strict and loose settings from this output for the selected model pair.
+The per-ticket median latency and escalation fraction feed the Step 3 prediction record
+(predictions_A2.md).
 
 Run from the repository root:
-    python a2/tune_cascade.py
-    python a2/tune_cascade.py --small llama3.2_3b --large llama3.1_8b
-    python a2/tune_cascade.py --small llama3.2_3b qwen2.5_3b --large llama3.1_8b
+    python a2/tune_cascade.py --small qwen2.5_3b --large qwen2.5_7b
 
 Inputs:
     a2/tuning_set.csv
@@ -65,12 +63,12 @@ def parse_args():
     parser.add_argument(
         "--small",
         nargs="+",
-        default=["qwen2.5_3b", "llama3.2_3b"],
+        default=["qwen2.5_3b"],
         help="Small-model raw CSV file stem(s), without _raw.csv.",
     )
     parser.add_argument(
         "--large",
-        default="llama3.1_8b",
+        default="qwen2.5_7b",
         help="Large-model raw CSV file stem, without _raw.csv.",
     )
     parser.add_argument("--tuning", default="a2/tuning_set.csv")
