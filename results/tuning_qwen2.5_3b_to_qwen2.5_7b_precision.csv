@@ -1,0 +1,8 @@
+predicted_category,predicted,right,wrong,precision_%
+Money transfer or service,8,8,0,100.0
+Consumer loan,1,1,0,100.0
+Credit reporting,30,23,7,76.66666666666667
+Credit card,8,6,2,75.0
+Debt collection,3,2,1,66.66666666666667
+Mortgage,21,11,10,52.38095238095238
+Bank account or service,22,11,11,50.0
