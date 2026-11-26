@@ -1,7 +1,7 @@
 # Prediction Record – P2 Group 20 (Assignment 2)
 
 **Brief, Step 3.** Committed **before any Assignment 2 test** (accuracy or speed). These predictions are not revised
-afterwards; the comparison with the outcomes goes on slide 7. Commit hash: ________ · Date: ________
+afterwards; the comparison with the outcomes goes on slide 7. Commit hash: `4360c4a` · Date: 26 November 2026 (no A2 request appears in `logs/requests.jsonl` before this commit)
 
 **What the predictions are based on (no A2 measurement):**
 
