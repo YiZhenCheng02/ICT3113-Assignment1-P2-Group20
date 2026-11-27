@@ -98,11 +98,13 @@ def fig_tradeoff():
                     color=CASCADE_COLOR, ha="left")
 
     # Floor misses checked against results/score_*.json and a2/limits.json (Credit card / Money transfer need 11/13):
-    #   cascades 10/13 & 10/13 (1 short each); qwen2.5:7b 8/13 & 9/13 (3 and 2 short); 3B models fail 3 categories.
+    #   cascades 10/13 & 10/13 (1 short each); qwen2.5:7b 8/13 & 9/13 (3 and 2 short);
+    #   qwen2.5:3b fails 3 categories, llama3.2:3b fails 4 (see slide 4 per-category table).
     # Placed in the empty lower-right area so it cannot collide with the point labels at the top.
     ax.text(4.3, 80.6, "diamond = fails at least one per-category floor\n"
             "cascades: Credit card & Money transfer 10/13 (need 11) - 1 ticket each\n"
-            "qwen2.5:7b: Credit card 8/13, Money transfer 9/13; 3B models fail 3 categories\n"
+            "qwen2.5:7b: Credit card 8/13, Money transfer 9/13\n"
+            "qwen2.5:3b fails 3 categories; llama3.2:3b fails 4\n"
             "circle = passes every limit (llama3.1:8b only)",
             fontsize=8, color="dimgray", va="top")
 
