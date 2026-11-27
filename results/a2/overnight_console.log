@@ -1,0 +1,80 @@
+2026-11-27 01:54:51 ===== A2 FULL RUN START (CASCADE=1) =====
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 01:55:24 START single_qwen2_5_3b_run1  (qwen2.5:3b, single)
+2026-11-27 02:11:43 DONE single_qwen2_5_3b_run1
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 02:12:15 START single_qwen2_5_3b_run2  (qwen2.5:3b, single)
+2026-11-27 02:28:34 DONE single_qwen2_5_3b_run2
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 02:29:06 START single_qwen2_5_3b_run3  (qwen2.5:3b, single)
+2026-11-27 02:45:25 DONE single_qwen2_5_3b_run3
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 02:46:36 START single_qwen2_5_7b_run1  (qwen2.5:7b, single)
+2026-11-27 03:02:55 DONE single_qwen2_5_7b_run1
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 03:04:01 START single_qwen2_5_7b_run2  (qwen2.5:7b, single)
+2026-11-27 03:20:20 DONE single_qwen2_5_7b_run2
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 03:21:24 START single_qwen2_5_7b_run3  (qwen2.5:7b, single)
+2026-11-27 03:37:43 DONE single_qwen2_5_7b_run3
+NAME           ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+llama3.2:3b    a80c4f17acd5    2.6 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 03:38:19 START single_llama3_2_3b_run1  (llama3.2:3b, single)
+2026-11-27 03:54:38 DONE single_llama3_2_3b_run1
+NAME           ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+llama3.2:3b    a80c4f17acd5    2.6 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 03:55:12 START single_llama3_2_3b_run2  (llama3.2:3b, single)
+2026-11-27 04:11:31 DONE single_llama3_2_3b_run2
+NAME           ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+llama3.2:3b    a80c4f17acd5    2.6 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 04:12:04 START single_llama3_2_3b_run3  (llama3.2:3b, single)
+2026-11-27 04:28:22 DONE single_llama3_2_3b_run3
+NAME           ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+llama3.1:8b    46e0c10c039e    5.6 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 04:29:35 START single_llama3_1_8b_run1  (llama3.1:8b, single)
+2026-11-27 04:45:53 DONE single_llama3_1_8b_run1
+NAME           ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+llama3.1:8b    46e0c10c039e    5.6 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 04:47:01 START single_llama3_1_8b_run2  (llama3.1:8b, single)
+2026-11-27 05:03:19 DONE single_llama3_1_8b_run2
+NAME           ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+llama3.1:8b    46e0c10c039e    5.6 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 05:04:28 START single_llama3_1_8b_run3  (llama3.1:8b, single)
+2026-11-27 05:20:47 DONE single_llama3_1_8b_run3
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 05:22:14 START cascade_s1_run1  (cascade setting 1, warmup escalations=1)
+2026-11-27 05:38:33 DONE cascade_s1_run1
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 05:39:59 START cascade_s1_run2  (cascade setting 1, warmup escalations=1)
+2026-11-27 05:56:18 DONE cascade_s1_run2
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 05:57:41 START cascade_s1_run3  (cascade setting 1, warmup escalations=1)
+2026-11-27 06:14:00 DONE cascade_s1_run3
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 06:15:27 START cascade_s2_run1  (cascade setting 2, warmup escalations=1)
+2026-11-27 06:31:46 DONE cascade_s2_run1
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 06:33:12 START cascade_s2_run2  (cascade setting 2, warmup escalations=1)
+2026-11-27 06:49:31 DONE cascade_s2_run2
+NAME          ID              SIZE      PROCESSOR    CONTEXT    RUNNER      UNTIL   
+qwen2.5:7b    845dbda0ea48    5.1 GB    100% CPU     4096       llamacpp    Forever    
+qwen2.5:3b    357c53fb659c    2.2 GB    100% CPU     4096       llamacpp    Forever    
+2026-11-27 06:50:55 START cascade_s2_run3  (cascade setting 2, warmup escalations=1)
+2026-11-27 07:07:14 DONE cascade_s2_run3
+2026-11-27 07:07:20 ===== A2 FULL RUN DONE — summarize with: python3 a2/summarize_jtl.py =====

@@ -1,0 +1,26 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider (file:/D:/jmeter/apache-jmeter-5.6.3/lib/xstream-1.4.20.jar)
+WARNING: Please consider reporting this to the maintainers of class com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using C:\Users\loadtest.ICUP\loadtest\a2\plan_a2.jmx
+Starting standalone test @ 2026 Nov 27 04:29:36 GMT+08:00 (1795724976624)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +      5 in 00:01:25 =    0.1/s Avg:  8638 Min:  4185 Max: 17512 Err:     0 (0.00%) Active: 3 Started: 7 Finished: 4
+summary +     10 in 00:02:30 =    0.1/s Avg:  9668 Min:  4049 Max: 15594 Err:     0 (0.00%) Active: 1 Started: 15 Finished: 14
+summary =     15 in 00:03:55 =    0.1/s Avg:  9325 Min:  4049 Max: 17512 Err:     0 (0.00%)
+summary +      2 in 00:00:30 =    0.1/s Avg:  6015 Min:  5633 Max:  6398 Err:     0 (0.00%) Active: 1 Started: 17 Finished: 16
+summary =     17 in 00:04:25 =    0.1/s Avg:  8935 Min:  4049 Max: 17512 Err:     0 (0.00%)
+summary +     10 in 00:04:30 =    0.0/s Avg:  7944 Min:  4809 Max: 13454 Err:     0 (0.00%) Active: 1 Started: 27 Finished: 26
+summary =     27 in 00:08:55 =    0.1/s Avg:  8568 Min:  4049 Max: 17512 Err:     0 (0.00%)
+summary +      2 in 00:06:20 =    0.0/s Avg:  5020 Min:  4301 Max:  5740 Err:     0 (0.00%) Active: 0 Started: 29 Finished: 29
+summary =     29 in 00:15:15 =    0.0/s Avg:  8324 Min:  4049 Max: 17512 Err:     0 (0.00%)
+Tidying up ...    @ 2026 Nov 27 04:44:51 GMT+08:00 (1795725891641)
+... end of run
