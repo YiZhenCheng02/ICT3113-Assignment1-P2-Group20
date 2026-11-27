@@ -85,3 +85,56 @@ These are deliberate for the Assignment 1 baseline (optimising them is Assignmen
 - Timeouts and errors can still occur under overload; they are measured by the load and stress tests.
 
 **Tip for JMeter (Step 5):** add an HTTP Header Manager with `X-Request-ID: ${__UUID()}`. The service logs that same ID, so every JMeter sample can be matched to exactly one log line.
+
+## Assignment 2 cascade mode
+
+The same service supports the original single-model mode and an optional category-based cascade.
+The classification prompt, seven categories, parser, inference options and endpoint paths remain
+unchanged.
+
+### Single-model mode
+
+Set `CLASSIFICATION_MODE=single` and choose `MODEL` in `.env`.
+
+### Cascade mode
+
+Before enabling cascade mode:
+
+1. Confirm that the selected pair is one of the Assignment 1 candidate models.
+2. Fill both acceptance lists in `.env` using the two settings selected from the tuning set.
+3. Set `CLASSIFICATION_MODE=cascade`.
+4. Set `SMALL_MODEL`, `LARGE_MODEL`, and `CASCADE_SETTING`.
+5. Confirm both models remain loaded using `docker compose exec ollama ollama ps`.
+
+Example configuration (replace the acceptance lists with the group's actual selected lists):
+
+```env
+CLASSIFICATION_MODE=cascade
+SMALL_MODEL=llama3.2:3b
+LARGE_MODEL=llama3.1:8b
+CASCADE_SETTING=1
+CASCADE_ACCEPT_SETTING_1=Consumer loan,Money transfer or service,Credit card,Credit reporting,Mortgage
+CASCADE_ACCEPT_SETTING_2=Consumer loan,Money transfer or service,Credit card,Credit reporting,Mortgage,Bank account or service
+```
+
+These are the two settings recorded in `a2/escalation_rule.md` (strict = setting 1, loose =
+setting 2). `OLLAMA_MAX_LOADED_MODELS=2` is fixed in `docker-compose.yml`.
+
+Recreate the service after changing `.env`:
+
+```powershell
+docker compose up -d --build --force-recreate triage
+```
+
+Give every run its own `RUN_ID` (for example `acc-cascade-s1`); the analysis scripts filter the
+log by `RUN_ID`. Recreating the `triage` container already starts with an empty database (the
+Dockerfile deletes it at start). **Never delete or clear `logs/requests.jsonl`:** the brief requires
+every service log to be kept, and the A1 evidence is in the same file.
+
+### Cascade logs
+
+For each successful cascade POST, `logs/requests.jsonl` records `small_model`,
+`small_prediction`, `small_model_ms`, `escalated`, `escalation_reason`,
+`large_model_ms`, `final_model`, `category`, and total `latency_ms`.
+The public response retains the existing `id`, `category`, `model`, and `request_id` keys;
+it does not expose the per-ticket `final_model`.

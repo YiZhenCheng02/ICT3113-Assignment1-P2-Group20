@@ -1,0 +1,45 @@
+{
+  "name": "llama3.2_3b-alone",
+  "source": "A1 records, test rows",
+  "right": 68,
+  "n": 92,
+  "overall_pct": 73.91,
+  "by_category": {
+    "Bank account or service": {
+      "right": 13,
+      "total": 15,
+      "pct": 86.67
+    },
+    "Consumer loan": {
+      "right": 5,
+      "total": 10,
+      "pct": 50.0
+    },
+    "Credit card": {
+      "right": 10,
+      "total": 13,
+      "pct": 76.92
+    },
+    "Credit reporting": {
+      "right": 9,
+      "total": 17,
+      "pct": 52.94
+    },
+    "Debt collection": {
+      "right": 10,
+      "total": 11,
+      "pct": 90.91
+    },
+    "Money transfer or service": {
+      "right": 9,
+      "total": 13,
+      "pct": 69.23
+    },
+    "Mortgage": {
+      "right": 12,
+      "total": 13,
+      "pct": 92.31
+    }
+  },
+  "passes_limits": false
+}

@@ -1,0 +1,34 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARN StatusConsoleListener The use of package scanning to locate plugins is deprecated and will be removed in a future release
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider (file:/D:/jmeter/apache-jmeter-5.6.3/lib/xstream-1.4.20.jar)
+WARNING: Please consider reporting this to the maintainers of class com.thoughtworks.xstream.converters.reflection.SunUnsafeReflectionProvider
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+Creating summariser <summary>
+Created the tree successfully using C:\Users\loadtest.ICUP\loadtest\a2\plan_a2.jmx
+Starting standalone test @ 2026 Nov 27 06:33:14 GMT+08:00 (1795732394609)
+Waiting for possible Shutdown/StopTestNow/HeapDump/ThreadDump message on port 4445
+summary +      1 in 00:00:21 =    0.0/s Avg: 10607 Min: 10607 Max: 10607 Err:     0 (0.00%) Active: 2 Started: 2 Finished: 0
+summary +      2 in 00:00:27 =    0.1/s Avg: 14297 Min:  6217 Max: 22378 Err:     0 (0.00%) Active: 1 Started: 3 Finished: 2
+summary =      3 in 00:00:48 =    0.1/s Avg: 13067 Min:  6217 Max: 22378 Err:     0 (0.00%)
+summary +      2 in 00:02:02 =    0.0/s Avg: 17848 Min: 17129 Max: 18567 Err:     0 (0.00%) Active: 2 Started: 6 Finished: 4
+summary =      5 in 00:02:49 =    0.0/s Avg: 14979 Min:  6217 Max: 22378 Err:     0 (0.00%)
+summary +     12 in 00:03:00 =    0.1/s Avg:  7982 Min:  1919 Max: 14439 Err:     0 (0.00%) Active: 3 Started: 19 Finished: 16
+summary =     17 in 00:05:49 =    0.0/s Avg: 10040 Min:  1919 Max: 22378 Err:     0 (0.00%)
+summary +      4 in 00:00:30 =    0.1/s Avg:  4207 Min:  2406 Max:  7142 Err:     0 (0.00%) Active: 1 Started: 21 Finished: 20
+summary =     21 in 00:06:19 =    0.1/s Avg:  8929 Min:  1919 Max: 22378 Err:     0 (0.00%)
+summary +      1 in 00:00:32 =    0.0/s Avg:  3581 Min:  3581 Max:  3581 Err:     0 (0.00%) Active: 2 Started: 23 Finished: 21
+summary =     22 in 00:06:51 =    0.1/s Avg:  8686 Min:  1919 Max: 22378 Err:     0 (0.00%)
+summary +      4 in 00:00:58 =    0.1/s Avg:  7527 Min:  2948 Max: 13668 Err:     0 (0.00%) Active: 1 Started: 26 Finished: 25
+summary =     26 in 00:07:49 =    0.1/s Avg:  8508 Min:  1919 Max: 22378 Err:     0 (0.00%)
+summary +      1 in 00:00:58 =    0.0/s Avg:  3668 Min:  3668 Max:  3668 Err:     0 (0.00%) Active: 1 Started: 27 Finished: 26
+summary =     27 in 00:08:48 =    0.1/s Avg:  8328 Min:  1919 Max: 22378 Err:     0 (0.00%)
+summary +      2 in 00:06:27 =    0.0/s Avg:  5202 Min:  2414 Max:  7991 Err:     0 (0.00%) Active: 0 Started: 29 Finished: 29
+summary =     29 in 00:15:15 =    0.0/s Avg:  8113 Min:  1919 Max: 22378 Err:     0 (0.00%)
+Tidying up ...    @ 2026 Nov 27 06:48:29 GMT+08:00 (1795733309625)
+... end of run

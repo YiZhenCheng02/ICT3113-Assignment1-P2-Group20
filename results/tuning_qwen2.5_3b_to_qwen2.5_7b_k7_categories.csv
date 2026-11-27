@@ -1,0 +1,8 @@
+k,true_category,tickets,baseline_right,cascade_right,accepted_n,escalated_n,baseline_acc_%,cascade_acc_%,accuracy_change_pp,tuning_floor_%,within_tuning_tolerance
+7,Bank account or service,12,12,11,12,0,100.0,91.66666666666667,-8.333333333333329,85.0,True
+7,Consumer loan,14,13,1,14,0,92.85714285714286,7.142857142857143,-85.71428571428572,77.85714285714286,False
+7,Credit card,8,6,6,8,0,75.0,75.0,0.0,60.0,True
+7,Credit reporting,26,23,23,26,0,88.46153846153847,88.46153846153847,0.0,73.46153846153847,True
+7,Debt collection,7,4,2,7,0,57.142857142857146,28.571428571428573,-28.571428571428573,42.142857142857146,False
+7,Money transfer or service,15,12,8,15,0,80.0,53.333333333333336,-26.666666666666664,65.0,False
+7,Mortgage,11,11,11,11,0,100.0,100.0,0.0,85.0,True

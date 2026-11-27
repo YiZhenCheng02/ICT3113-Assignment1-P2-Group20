@@ -1,0 +1,247 @@
+{
+  "name": "acc_cascade-s2_test",
+  "source_results": "results/acc_cascade-s2_test.csv",
+  "golden": "a2/test_set.csv",
+  "run_id": "acc-cascade-s2",
+  "n": 92,
+  "right": 82,
+  "overall_pct": 89.13,
+  "overall_pass": true,
+  "by_category": {
+    "Bank account or service": {
+      "right": 15,
+      "total": 15,
+      "pct": 100.0
+    },
+    "Consumer loan": {
+      "right": 9,
+      "total": 10,
+      "pct": 90.0
+    },
+    "Credit card": {
+      "right": 10,
+      "total": 13,
+      "pct": 76.92
+    },
+    "Credit reporting": {
+      "right": 17,
+      "total": 17,
+      "pct": 100.0
+    },
+    "Debt collection": {
+      "right": 9,
+      "total": 11,
+      "pct": 81.82
+    },
+    "Money transfer or service": {
+      "right": 10,
+      "total": 13,
+      "pct": 76.92
+    },
+    "Mortgage": {
+      "right": 12,
+      "total": 13,
+      "pct": 92.31
+    }
+  },
+  "category_pass": {
+    "Bank account or service": {
+      "pct": 100.0,
+      "floor_pct": 85.0,
+      "pass": true
+    },
+    "Consumer loan": {
+      "pct": 90.0,
+      "floor_pct": 85.0,
+      "pass": true
+    },
+    "Credit card": {
+      "pct": 76.92,
+      "floor_pct": 77.3076923076923,
+      "pass": false
+    },
+    "Credit reporting": {
+      "pct": 100.0,
+      "floor_pct": 73.23529411764706,
+      "pass": true
+    },
+    "Debt collection": {
+      "pct": 81.82,
+      "floor_pct": 57.727272727272734,
+      "pass": true
+    },
+    "Money transfer or service": {
+      "pct": 76.92,
+      "floor_pct": 77.3076923076923,
+      "pass": false
+    },
+    "Mortgage": {
+      "pct": 92.31,
+      "floor_pct": 85.0,
+      "pass": true
+    }
+  },
+  "all_category_pass": false,
+  "errors": {
+    "http_or_other": 0,
+    "wrong_category": 10,
+    "detail": [
+      {
+        "ref": "G128",
+        "true": "Debt collection",
+        "category": "Credit reporting",
+        "status": 201
+      },
+      {
+        "ref": "G146",
+        "true": "Credit card",
+        "category": "Bank account or service",
+        "status": 201
+      },
+      {
+        "ref": "G192",
+        "true": "Credit card",
+        "category": "Consumer loan",
+        "status": 201
+      },
+      {
+        "ref": "G016",
+        "true": "Mortgage",
+        "category": "Debt collection",
+        "status": 201
+      },
+      {
+        "ref": "G131",
+        "true": "Consumer loan",
+        "category": "Debt collection",
+        "status": 201
+      },
+      {
+        "ref": "G170",
+        "true": "Money transfer or service",
+        "category": "Bank account or service",
+        "status": 201
+      },
+      {
+        "ref": "G048",
+        "true": "Debt collection",
+        "category": "Credit reporting",
+        "status": 201
+      },
+      {
+        "ref": "G129",
+        "true": "Money transfer or service",
+        "category": "Bank account or service",
+        "status": 201
+      },
+      {
+        "ref": "G105",
+        "true": "Credit card",
+        "category": "Credit reporting",
+        "status": 201
+      },
+      {
+        "ref": "G079",
+        "true": "Money transfer or service",
+        "category": "Bank account or service",
+        "status": 201
+      }
+    ]
+  },
+  "escalation": {
+    "logged_tickets": 92,
+    "escalated_n": 44,
+    "escalated_pct": 47.83,
+    "accepted_n": 48,
+    "accepted_right": 44,
+    "accepted_accuracy_pct": 91.67,
+    "escalated_right": 38,
+    "escalated_accuracy_pct": 86.36
+  },
+  "confusion_true_pred_n": [
+    {
+      "true": "Bank account or service",
+      "category": "Bank account or service",
+      "n": 15
+    },
+    {
+      "true": "Consumer loan",
+      "category": "Consumer loan",
+      "n": 9
+    },
+    {
+      "true": "Consumer loan",
+      "category": "Debt collection",
+      "n": 1
+    },
+    {
+      "true": "Credit card",
+      "category": "Bank account or service",
+      "n": 1
+    },
+    {
+      "true": "Credit card",
+      "category": "Consumer loan",
+      "n": 1
+    },
+    {
+      "true": "Credit card",
+      "category": "Credit card",
+      "n": 10
+    },
+    {
+      "true": "Credit card",
+      "category": "Credit reporting",
+      "n": 1
+    },
+    {
+      "true": "Credit reporting",
+      "category": "Credit reporting",
+      "n": 17
+    },
+    {
+      "true": "Debt collection",
+      "category": "Credit reporting",
+      "n": 2
+    },
+    {
+      "true": "Debt collection",
+      "category": "Debt collection",
+      "n": 9
+    },
+    {
+      "true": "Money transfer or service",
+      "category": "Bank account or service",
+      "n": 3
+    },
+    {
+      "true": "Money transfer or service",
+      "category": "Money transfer or service",
+      "n": 10
+    },
+    {
+      "true": "Mortgage",
+      "category": "Debt collection",
+      "n": 1
+    },
+    {
+      "true": "Mortgage",
+      "category": "Mortgage",
+      "n": 12
+    }
+  ],
+  "limits_used": {
+    "overall_limit_pct": 82.3913043478261,
+    "category_limit_pct": {
+      "Bank account or service": 85.0,
+      "Consumer loan": 85.0,
+      "Credit card": 77.3076923076923,
+      "Credit reporting": 73.23529411764706,
+      "Debt collection": 57.727272727272734,
+      "Money transfer or service": 77.3076923076923,
+      "Mortgage": 85.0
+    },
+    "top_model": "llama3.1_8b",
+    "top_overall_pct": 92.3913043478261
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "qwen2.5_3b-alone",
+  "source": "A1 records, test rows",
+  "right": 70,
+  "n": 92,
+  "overall_pct": 76.09,
+  "by_category": {
+    "Bank account or service": {
+      "right": 15,
+      "total": 15,
+      "pct": 100.0
+    },
+    "Consumer loan": {
+      "right": 2,
+      "total": 10,
+      "pct": 20.0
+    },
+    "Credit card": {
+      "right": 9,
+      "total": 13,
+      "pct": 69.23
+    },
+    "Credit reporting": {
+      "right": 16,
+      "total": 17,
+      "pct": 94.12
+    },
+    "Debt collection": {
+      "right": 8,
+      "total": 11,
+      "pct": 72.73
+    },
+    "Money transfer or service": {
+      "right": 7,
+      "total": 13,
+      "pct": 53.85
+    },
+    "Mortgage": {
+      "right": 13,
+      "total": 13,
+      "pct": 100.0
+    }
+  },
+  "passes_limits": false
+}

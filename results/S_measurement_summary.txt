@@ -1,0 +1,19 @@
+# S measurement — top model alone (llama3.1:8b), A2 Step 4 set-up
+# Config: CLASSIFICATION_MODE=single, MODEL=llama3.1:8b, RUN_ID=s-measure, num_ctx=4096
+# Raw rows: results/S_measurement.csv (3 tickets from a2/s_rows.csv, sent one at a time)
+
+Times (s): 69.65 (first POST, cold service path), 9.25, 8.11
+S = median = 9.25 s
+
+Derived JMeter parameters (brief rules: rate = 1 ticket per 2S; run = S minutes, min 5;
+timeout = 10 x S, min 300 s; pause = timeout + >= 60 s):
+  Arrival rate : 1 ticket every 18.5 s = 3.24 tickets/min (195/hour)
+  Run length   : 555 s = 9.2 min (~30 tickets per run)
+  HTTP timeout : 300000 ms (10 x S = 92.5 s -> brief minimum 300 s applies)
+  Schedule     : rate(3.24/min) random_arrivals(555 s) pause(6 min)
+
+JMeter command (Computer 2), per run:
+  jmeter -n -t a2\plan_a2.jmx -l results\a2\jtl\<tag>.jtl ^
+    -Jhost=192.168.1.42 -Jport=8000 -Jrate_per_min=3.24 -Jrun_s=555 ^
+    -Jpause_min=6 -Jtimeout_ms=300000 ^
+    -Jworkload_file=C:\path\to\a2\workload_rows.csv -Jrun_tag=<tag>

@@ -1,0 +1,8 @@
+[ 8546.688314] gunicorn invoked oom-killer: gfp_mask=0x140cca(GFP_HIGHUSER_MOVABLE|__GFP_COMP), order=0, oom_score_adj=0
+[ 8546.690063]  oom_kill_process+0x105/0x1a0
+[ 8546.691735] [  pid  ]   uid  tgid total_vm      rss pgtables_bytes swapents oom_score_adj name
+[ 8546.693202] oom-kill:constraint=CONSTRAINT_NONE,nodemask=(null),cpuset=25c70cfeedd3469c71e878da79008a9ab8d11c0c591aeb962b5b04f7caed27fc,mems_allowed=0,global_oom,task_memcg=/docker/52403ad5ab9ed90e72427d1a9e22410fc06bee4cac1063bc38d7d0005e8904bf,task=llama-server,pid=62617,uid=0
+[ 8546.694485] Out of memory: Killed process 62617 (llama-server) total-vm:6076244kB, anon-rss:4818492kB, file-rss:256kB, shmem-rss:0kB, UID:0 pgtables:9664kB oom_score_adj:0
+[ 8726.609740] Out of memory: Killed process 64285 (llama-server) total-vm:6422236kB, anon-rss:4875952kB, file-rss:956kB, shmem-rss:0kB, UID:0 pgtables:9836kB oom_score_adj:0
+[ 8746.364997] Out of memory: Killed process 64646 (llama-server) total-vm:6076244kB, anon-rss:4765380kB, file-rss:108kB, shmem-rss:0kB, UID:0 pgtables:9564kB oom_score_adj:0
+[ 8769.491478] Out of memory: Killed process 64808 (llama-server) total-vm:6422236kB, anon-rss:4891012kB, file-rss:128kB, shmem-rss:0kB, UID:0 pgtables:9860kB oom_score_adj:0
